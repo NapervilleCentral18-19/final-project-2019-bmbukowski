@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=center\ bottom\ shade\ size\ enterwidth
+comment0.target=Rectangle(int,\ int,\ java.awt.Color,\ int,\ int)
+comment1.params=size
+comment1.target=void\ setHeight(int)
+comment1.text=\r\n\ setHeight\ -\ changes\ height\ value\r\n\ @param\ new\ height\ value\r\n
+comment2.params=page\ shade
+comment2.target=void\ setColor(java.awt.Graphics,\ java.awt.Color)
+comment2.text=\r\n\ setColor\ -\ changes\ color\ value\r\n\ @param\ new\ color\ value\r\n
+comment3.params=page
+comment3.target=void\ draw(java.awt.Graphics)
+numComments=4

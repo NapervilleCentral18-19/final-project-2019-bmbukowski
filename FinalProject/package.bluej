@@ -1,32 +1,15 @@
 #BlueJ package file
 objectbench.height=76
-<<<<<<< HEAD
-objectbench.width=647
-package.editor.height=556
-package.editor.width=549
-package.editor.x=0
-package.editor.y=0
-=======
 objectbench.width=658
 package.editor.height=400
 package.editor.width=560
 package.editor.x=352
 package.editor.y=130
->>>>>>> 326b59152dfc72dc2aa7ccbe53be82095c8c1cc4
 package.numDependencies=0
 package.numTargets=3
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
-<<<<<<< HEAD
-target1.editor.height=700
-target1.editor.width=900
-target1.editor.x=388
-target1.editor.y=39
-target1.height=50
-target1.name=ChoiceMap
-target1.naviview.expanded=true
-=======
 target1.appletHeight=500
 target1.appletWidth=500
 target1.editor.height=700
@@ -37,7 +20,6 @@ target1.height=50
 target1.name=Startingpoint
 target1.naviview.expanded=true
 target1.numberAppletParameters=0
->>>>>>> 326b59152dfc72dc2aa7ccbe53be82095c8c1cc4
 target1.showInterface=false
 target1.type=AppletTarget
 target1.typeParameters=
