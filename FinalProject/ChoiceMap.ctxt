@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=newKey
+comment0.target=void\ setKey(int)
+comment0.text=\r\n\ sets\ the\ current\ key\ choice\r\n
+comment1.params=
+comment1.target=int\ getKey()
+comment1.text=\r\n\ gets\ the\ current\ key\ choice\r\n
+comment2.params=
+comment2.target=int[]\ getKeyValues()
+comment2.text=\r\n\ gets\ the\ choices\ associated\ with\ the\ current\ key\r\n
+numComments=3
