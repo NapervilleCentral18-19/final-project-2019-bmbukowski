@@ -7,6 +7,8 @@
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.HashMap;
+
 /*MAP NOTES
  *     key value, collection value (only stores objects)
  * Map<String,    Integer          > myMap = new Map<>(); <-- making a map
@@ -20,6 +22,7 @@ import java.util.Map;
  *     myMap.get(key); <--- get the value associated with the key
  *     }
  */
+
 /*
  * Planning
  * Methods Needed
@@ -36,7 +39,7 @@ public class ChoiceMap
     //list of all values associated with the keys
     private ArrayList<int[]> keyVals;
     
-    Map<Integer, int[]> choices;  
+    Map<Integer, int[]> choices = new HashMap<Integer, int[]>();  
     
     /**
      * user enters an array of integers (key choices)

@@ -6,10 +6,17 @@ objectbench.height=76
 objectbench.width=658
 package.editor.height=400
 package.editor.width=560
+<<<<<<< HEAD
 package.editor.x=435
 package.editor.y=70
 package.numDependencies=1
 package.numTargets=4
+=======
+package.editor.x=352
+package.editor.y=130
+package.numDependencies=0
+package.numTargets=3
+>>>>>>> 1fffab549de1ed68f69140288384c239eec2bd35
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
