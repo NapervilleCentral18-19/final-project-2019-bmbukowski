@@ -34,10 +34,12 @@ public class ChoiceMap
 {
     //current key choice the player is on
     private int curKey;
+    
     //list of all keys
-    private ArrayList<Integer> keys;
+    private int[] keys;
+    
     //list of all values associated with the keys
-    private ArrayList<int[]> keyVals;
+    private int[][] keyVals;
     
     Map<Integer, int[]> choices = new HashMap<Integer, int[]>();  
     
@@ -45,15 +47,16 @@ public class ChoiceMap
      * user enters an array of integers (key choices)
      * and an array of arrays [1, 2] (the two choices a user can choose at a certain choice
      */
-    public ChoiceMap(ArrayList<Integer> k, ArrayList<int[]> kV)
+    public ChoiceMap(int[] k, int[][] kV)
     {
         keys = k;
         keyVals = kV;
+        curKey = keys[0];
+        
         //putting the keys and values into the map
-        for(int i = 0; i < keys.size(); i++)
+        for(int i = 0; i < keys.length; i++)
         {
-            System.out.println(choices);
-            choices.put(keys.get(i), keyVals.get(i));
+            choices.put(keys[i], keyVals[i]);
         }
     }
     
@@ -83,5 +86,4 @@ public class ChoiceMap
     {
         return choices.get(curKey);
     }
-
 }

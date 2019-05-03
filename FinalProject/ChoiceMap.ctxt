@@ -1,11 +1,14 @@
 #BlueJ class context
-comment0.params=newKey
-comment0.target=void\ setKey(int)
-comment0.text=\r\n\ sets\ the\ current\ key\ choice\r\n
-comment1.params=
-comment1.target=int\ getKey()
-comment1.text=\r\n\ gets\ the\ current\ key\ choice\r\n
+comment0.params=k\ kV
+comment0.target=ChoiceMap(int[],\ int[][])
+comment0.text=\r\n\ user\ enters\ an\ array\ of\ integers\ (key\ choices)\r\n\ and\ an\ array\ of\ arrays\ [1,\ 2]\ (the\ two\ choices\ a\ user\ can\ choose\ at\ a\ certain\ choice\r\n
+comment1.params=newKey
+comment1.target=void\ setKey(int)
+comment1.text=\r\n\ sets\ the\ current\ key\ choice\r\n
 comment2.params=
-comment2.target=int[]\ getKeyValues()
-comment2.text=\r\n\ gets\ the\ choices\ associated\ with\ the\ current\ key\r\n
-numComments=3
+comment2.target=int\ getKey()
+comment2.text=\r\n\ gets\ the\ current\ key\ choice\r\n
+comment3.params=
+comment3.target=int[]\ getKeyValues()
+comment3.text=\r\n\ gets\ the\ choices\ associated\ with\ the\ current\ key\r\n
+numComments=4

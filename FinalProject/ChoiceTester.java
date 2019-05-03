@@ -16,37 +16,22 @@ public class ChoiceTester
      */
     public static void main(String[] args)
     {
-        ArrayList<Integer> keys = new ArrayList<Integer>();
-        keys.add(1);
-        keys.add(2);
-        keys.add(3);
+        int[] keys = {1, 2, 3};
         
-        ArrayList<int[]> keyVals = new ArrayList<int[]>();
-        int[] v1 = {10, 11};
-        int[] v2 = {20, 22};
-        int[] v3 = {30, 33};       
-        keyVals.add(v1);
-        keyVals.add(v2);
-        keyVals.add(v3);
-        
-        System.out.println(keys);
-        System.out.println(keyVals);
+        int[][] vals = { {10, 11},
+                         {20, 22},
+                         {30, 33} };
+                         
         //choice map obj
-        //ChoiceMap myChoices = new ChoiceMap(keys, keyVals);
+        ChoiceMap myChoices = new ChoiceMap(keys, vals);
         
-        //myChoices.setKey(1);
-       // System.out.println(myChoices.getKey());
-        //System.out.println(myChoices.getKeyValues());
-        
-        Map <Integer, int[]> test = new HashMap<>();
-        
-        test.put(1, v1);
-        System.out.println(test.get(1));
-        
-        
-        
-        
-        
+        myChoices.setKey(1);
+        System.out.println(myChoices.getKey());
+        System.out.println(myChoices.getKeyValues());
+
+        //test story
+        //starting choice is 1, then the enter the number 2 or 3
+        //new choice becomes 2 or 3, then show the options for the chosen choice
         
     }
 }
