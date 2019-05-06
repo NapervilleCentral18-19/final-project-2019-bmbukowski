@@ -12,7 +12,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class Background extends Applet implements MouseListener
+public class Background extends Applet 
 {
    private final int APPLET_WIDTH = 1000;
    private final int APPLET_HEIGHT = 1000;
@@ -55,12 +55,13 @@ public class Background extends Applet implements MouseListener
         Thread.sleep(250);
     }
     catch(InterruptedException e){}
-    blankArea.addMouseListener(this);
-    addMouseListener(this);
-    component.addMouseListener(new MouseListener());
-    int x = MouseEvent.MOUSE_CLICKED.getXOnScreen();
-    int y = MouseEvent.MOSUE_CLICKED.getYOnScreen();
-    Main.mouseClicked(x, y);
+    
+    //blankArea.addMouseListener(this);
+    //addMouseListener(this);
+    //component.addMouseListener(new MouseListener());
+    //int x = MouseEvent.MOUSE_CLICKED.getXOnScreen();
+    //int y = MouseEvent.MOSUE_CLICKED.getYOnScreen();
+    //Main.mouseClicked(x, y);
     
     repaint(); // clears screen
  }
