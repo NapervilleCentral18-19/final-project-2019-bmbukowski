@@ -8,6 +8,7 @@
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class ChoiceTester
 {
@@ -16,18 +17,31 @@ public class ChoiceTester
      */
     public static void main(String[] args)
     {
-        int[] keys = {1, 2, 3};
+        Scanner inputer = new Scanner(System.in);
         
-        int[][] vals = { {10, 11},
-                         {20, 22},
-                         {30, 33} };
+        int[] keys = {1, 2, 3, 4, 5, 6, 7};
+        
+        int[][] vals = { {2, 3},
+                         {4, 5},
+                         {6, 7},
+                         {6, 7},
+                         {6, 7},
+                         {0},
+                         {0} };
                          
         //choice map obj
         ChoiceMap myChoices = new ChoiceMap(keys, vals);
-        
         myChoices.setKey(1);
-        System.out.println(myChoices.getKey());
-        System.out.println(myChoices.getKeyValues());
+        int choice;
+        while(myChoices.getKey() != 0)
+        {
+            System.out.println("Your current choice is "+myChoices.getKey());
+            System.out.println("Possible Choices: "+myChoices.getKeyValues()[0]+" and "+myChoices.getKeyValues()[myChoices.getKeyValues().length-1]);
+            System.out.print("\nEnter your choice: ");
+            choice = inputer.nextInt();
+            myChoices.setKey(choice);
+            System.out.println();
+        }
 
         //test story
         //starting choice is 1, then the enter the number 2 or 3
