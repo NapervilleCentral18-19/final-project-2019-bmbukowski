@@ -37,11 +37,22 @@ public class MainStoryTest
                          {0} };  //10
                          
         //text associated with choices
-        String[] text = {"DIE", "Go to abandoned waterpark", "Stay home",
+        String[] choicetext = {"DIE", "Go to the abandoned waterpark", "Stay home",
             "Get an Uber", "Walk to the waterpark", "Uber straight to the waterpark",
             "Uber to the McDonald's next door", "Walk to the McDonald's next door",
             "Walk straight to the waterpark", "Now walk to the waterpark",
             "Have a milkshake"};
+            
+        String[] explaintext = {"You made the wrong choice!",
+            "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
+            "You called an Uber.", "You start to walk to the waterpark.",
+            "You told your Uber driver to take you straight to the waterpark."+
+            "\nBut it turns out that your Uber driver is an undercover cop!\nHe arrests you for going to an illegal place.",
+            
+            "You told your Uber driver to drop you off at McDonald's.",
+            "You walked to the McDonald's next door.",
+            "You walked straight to the waterpark.\nBut there is a kidnapper waiting there and he kidnaps you!",
+            "You drank a milkshake. But the McDonald's worker accidentally poisoned your milkshake!", "test"};
             
         //choice the player has currently chosen 
         //starts off as 2 (stay home) so that it starts with correct choices (1 and 2)
@@ -53,14 +64,17 @@ public class MainStoryTest
         myChoices.setKey(chosenChoice);
         
         //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-        System.out.println("You wake up one morning and want to go have an adventure");
+        System.out.println("You wake up one morning and want to go have an adventure.\n"+
+        "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n");
         while(myChoices.getKey() != 0 && myChoices.getKey() != 100)
         {
             if(myChoices.getKeyValues().length - 1 > 0)
             {
-                System.out.println("Will you "+myChoices.getKeyValues()[0]+". "+text[myChoices.getKeyValues()[0]]+" or "+myChoices.getKeyValues()[1]+". "+text[myChoices.getKeyValues()[1]]);
+                System.out.println("Will you:\n"
+                +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
+                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]]);
                 
-                System.out.println("Enter your choice (integer): ");
+                System.out.print("\nEnter your choice (integer): ");
                 chosenChoice = inputer.nextInt();
                 
                 myChoices.setKey(chosenChoice);
@@ -71,10 +85,11 @@ public class MainStoryTest
                 chosenChoice = myChoices.getKeyValues()[0];
             }
             
-            System.out.println("You "+text[chosenChoice]);
+            //text that explains your choice "you did this"
+            System.out.println(explaintext[chosenChoice]);
             System.out.println();
         }
         
-        System.out.println("END");
+        System.out.println("THE END");
     }      
 }
