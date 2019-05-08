@@ -1,5 +1,5 @@
 import java.awt.event.MouseAdapter;
-
+/*
 public class MouseEventDemo implements MouseListener {
     //where initialization occurs:
     //Register for mouse events on blankArea and the panel.
@@ -35,3 +35,4 @@ public class MouseEventDemo implements MouseListener {
                         + "." + newline);
     }
 }
+*/
