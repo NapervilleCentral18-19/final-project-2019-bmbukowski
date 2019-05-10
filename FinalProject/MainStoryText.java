@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class MainStoryText
 {
      
-    public static void main(String[] args)
+    public void main(String[] args)
     {
         //all the choice keys
         int[] keys = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
