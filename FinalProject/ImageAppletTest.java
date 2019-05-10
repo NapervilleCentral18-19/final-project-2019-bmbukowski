@@ -23,8 +23,8 @@ public class ImageAppletTest extends JApplet
     int count = 0;
   
     public void init() {  
-        picture1 = getImage(getDocumentBase(),"shake.jpg");  
-        picture2 = getImage(getDocumentBase(), "uber.jpg");
+        picture1 = getImage(getDocumentBase(),"Images\\shake.jpg");  
+        picture2 = getImage(getDocumentBase(), "Images\\uber.jpg");
     }  
     
     public void paint(Graphics g) {  

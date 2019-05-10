@@ -1,25 +1,23 @@
 /**
- * Alexandra Kerans and Brianna Bukowski
- * 7 May 2019
- * Main Story Test
- * Trying to run an entire story with choices as a test (no graphics)
+ * Alexandra Kerans
+ * 10 May 2019
+ * AppletStory
+ * Main story in the applet with pictures hopefully
  */
 
-import java.util.ArrayList;
+import java.awt.*;
+import javax.swing.*;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
 
-//THIS TEXT STORY WORKS
-//But, the user can just enter whatever he wants,
-// so need to restrict choices to only the ones currently available
-// can do this through graphics (only allowing 2 buttons to press)
-
-public class MainStoryText
+public class AppletStory extends JApplet
 {
-     
-    public static void main(String[] args)
-    {
+    //all the images that correspond with a choice
+    Image c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15;
+    
+    //Text story stuff
         //all the choice keys
         int[] keys = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
         //0=DIE
@@ -82,24 +80,69 @@ public class MainStoryText
     
         Scanner inputer = new Scanner(System.in);
         ChoiceMap myChoices = new ChoiceMap(keys, vals);
+        
+        
+    Image choiceImages[] = new Image[16];     
+    public void init()
+    {
+        //Images for story
+        c0 = getImage(getDocumentBase(), "Images\\death.jpg");
+        c1 = getImage(getDocumentBase(), "Images\\waterpark.jpg");
+        c2 = getImage(getDocumentBase(), "Images\\stayhome.jpg");
+        c3 = getImage(getDocumentBase(), "Images\\uber.jpg");
+        c4 = getImage(getDocumentBase(), "Images\\walk.jpg");
+        c5 = getImage(getDocumentBase(), "Images\\uberispolice.jpg");
+        c6 = getImage(getDocumentBase(), "Images\\mcdonalds.jpg");
+        c7 = getImage(getDocumentBase(), "Images\\mcdonalds.jpg");
+        c8 = getImage(getDocumentBase(), "Images\\continuewalking.jpg");
+        c9 = getImage(getDocumentBase(), "Images\\continuetowaterpark.jpg");
+        c10 = getImage(getDocumentBase(), "Images\\shake.jpg");
+        c11 = getImage(getDocumentBase(), "Images\\stayoutside.jpg");
+        c12 = getImage(getDocumentBase(), "Images\\goinside.jpg");
+        c13 = getImage(getDocumentBase(), "Images\\upstairs.jpg");
+        c14 = getImage(getDocumentBase(), "Images\\downstairs.jpg");
+        c15 = getImage(getDocumentBase(), "Images\\treasure.jpg");
+        
+        choiceImages[0] = c0;
+        choiceImages[1] = c1;
+        choiceImages[2] = c2;
+        choiceImages[3] = c3;
+        choiceImages[4] = c4;
+        choiceImages[5] = c5;
+        choiceImages[6] = c6;
+        choiceImages[7] = c7;
+        choiceImages[8] = c8;
+        choiceImages[9] = c9;
+        choiceImages[10] = c10;
+        choiceImages[11] = c11;
+        choiceImages[12] = c12;
+        choiceImages[13] = c13;
+        choiceImages[14] = c14;
+        choiceImages[15] = c15;
+        
+    }
+    
+    public void paint(Graphics g)
+    {
+        /*
         myChoices.setKey(chosenChoice);
         
         //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-        System.out.println("You wake up one morning and want to go have an adventure.\n"+
-        "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n");
+        g.drawString("You wake up one morning and want to go have an adventure.\n"+
+        "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n", 100, 100);
         while(myChoices.getKey() != 0 && myChoices.getKey() != 15)
         {
             if(myChoices.getKeyValues().length > 1)
             {
-                System.out.println("Will you:\n"
+                g.drawString("Will you:\n"
                 +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
-                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]]);
+                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
                 
-                System.out.print("\nEnter your choice (integer): ");
+                g.drawString("\nEnter your choice (integer): ", 200, 100);
                 chosenChoice = inputer.nextInt();
                 
                 myChoices.setKey(chosenChoice);
-                System.out.println();
+                //System.out.println();
             }
             else{
                 myChoices.setKey(myChoices.getKeyValues()[0]);
@@ -107,10 +150,22 @@ public class MainStoryText
             }
             
             //text that explains your choice "you did this"
-            System.out.println(explaintext[chosenChoice]);
-            System.out.println();
+            g.drawString(explaintext[chosenChoice], 300, 100);
+            //System.out.println();
+            //will the images in an array work?
+            g.drawImage(choiceImages[chosenChoice], 30, 30, this);
+            
+            try{
+                //pause the program for quarter second(is in milliseconds)
+                Thread.sleep(250);
+               }
+               catch(InterruptedException e){}//<-- do nothing if exception occurs
+            //if the CPU is busy and can't sleep
+            
+            repaint();
         }
         
-        System.out.println("THE END");
-    }      
+        g.drawString("THE END", 400, 100);
+        */
+    }
 }
