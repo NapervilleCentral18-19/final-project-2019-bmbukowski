@@ -1,4 +1,4 @@
-import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseAdapter;
 /*
 public class MouseEventDemo implements MouseListener {
     //where initialization occurs:

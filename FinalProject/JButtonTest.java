@@ -44,7 +44,7 @@ public class JButtonTest
         
         b.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
-            tf.setText("Welcome to Javatpoint.");  
+            tf.setText("You clicked the button");  
         }  
     });  
     f.add(b);f.add(tf);  
