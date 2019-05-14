@@ -164,9 +164,11 @@ public class MainStory extends Applet implements MouseListener
  }
  
  public void mouseClicked(MouseEvent e) {
+     // if the user clicks the left box, that is the choice they made and is now the first choice is true
      if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 350 && e.getY() <= 500){
          choice1bool = true;
      }
+     // if the user clicks the right box, that is the choice they made and is now the second choice is true
      else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 350 && e.getY() <= 500){
          choice2bool = true;
      }
@@ -212,16 +214,17 @@ public class MainStory extends Applet implements MouseListener
             page.drawString("Will you:\n"
             +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
             +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
-            page.drawImage(myChoices.getKeyValues()[0], 30, 30, this);
-            page.drawImage(myChoices.getKeyValues()[1], 30, 30, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 30, 30, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 30, 30, this);
             
+            // mouselistener sets true whatever one the use clicks
             if (choice1bool == true){
                 chosenChoice = myChoices.getKeyValues()[0];
-                choice1bool = false;
+                choice1bool = false; // true is changed to false for the next prompt to go
             }
             else if (choice2bool == true){
                 chosenChoice = myChoices.getKeyValues()[1];
-                choice2bool = false;
+                choice2bool = false; // true is changed to false for the next prompt to go
             }
                 
             myChoices.setKey(chosenChoice);
