@@ -215,7 +215,6 @@ public class MainStory extends Applet implements MouseListener
             page.drawImage(myChoices.getKeyValues()[0], 30, 30, this);
             page.drawImage(myChoices.getKeyValues()[1], 30, 30, this);
             
-            page.drawString("\nEnter your choice (integer): ", 200, 100);
             if (choice1bool == true){
                 chosenChoice = myChoices.getKeyValues()[0];
                 choice1bool = false;
