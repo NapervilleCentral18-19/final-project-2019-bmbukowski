@@ -24,7 +24,9 @@ public class MainStory extends Applet implements MouseListener
    private Random generator = new Random();
    private Rectangle choice1, choice2;
    private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15;
-   private ArrayList<Image> photoList;
+   // private ArrayList<Image> photoList;
+   private boolean choice1bool = false;
+   private boolean choice2bool = false;
    int count = 0;
    
    //Text story stuff
@@ -163,10 +165,10 @@ public class MainStory extends Applet implements MouseListener
  
  public void mouseClicked(MouseEvent e) {
      if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 350 && e.getY() <= 500){
-         choice1 = new Rectangle (100, 800, Color.blue, 350, 100); 
+         choice1bool = true;
      }
      else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 350 && e.getY() <= 500){
-         choice2 = new Rectangle (550, 800, Color.blue, 350, 100); 
+         choice2bool = true;
      }
  }
 
@@ -196,61 +198,54 @@ public class MainStory extends Applet implements MouseListener
     choice1.draw(page);
     choice2.setColor(page, Color.green);
     choice2.draw(page);
-    //page.drawImage(photo1, 30, 30, this);
-    page.drawImage(choiceImages[count], 30, 30, this);
-        
-    try{
-        // pause program for quarter-sec(in miliseconds)
-        Thread.sleep(100);
-    }
-    catch(InterruptedException e){}
-    
     count++;
     
-    repaint(); // clears screen
+    myChoices.setKey(chosenChoice);
     
-    /*
-        myChoices.setKey(chosenChoice);
-        
-        //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-        g.drawString("You wake up one morning and want to go have an adventure.\n"+
-        "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n", 100, 100);
-        while(myChoices.getKey() != 0 && myChoices.getKey() != 15)
+    //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
+    page.drawString("You wake up one morning and want to go have an adventure.\n"+
+    "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n", 100, 100);
+    while(myChoices.getKey() != 0 && myChoices.getKey() != 15)
+    {
+        if(myChoices.getKeyValues().length > 1)
         {
-            if(myChoices.getKeyValues().length > 1)
-            {
-                g.drawString("Will you:\n"
-                +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
-                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
-                
-                g.drawString("\nEnter your choice (integer): ", 200, 100);
-                chosenChoice = inputer.nextInt();
-                
-                myChoices.setKey(chosenChoice);
-                //System.out.println();
-            }
-            else{
-                myChoices.setKey(myChoices.getKeyValues()[0]);
+            page.drawString("Will you:\n"
+            +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
+            +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
+            page.drawImage(myChoices.getKeyValues()[0], 30, 30, this);
+            page.drawImage(myChoices.getKeyValues()[1], 30, 30, this);
+            
+            page.drawString("\nEnter your choice (integer): ", 200, 100);
+            if (choice1bool == true)
                 chosenChoice = myChoices.getKeyValues()[0];
-            }
-            
-            //text that explains your choice "you did this"
-            g.drawString(explaintext[chosenChoice], 300, 100);
+            else if (choice2bool == true)
+                chosenChoice = myChoices.getKeyValues()[1];
+                
+            myChoices.setKey(chosenChoice);
             //System.out.println();
-            //will the images in an array work?
-            g.drawImage(choiceImages[chosenChoice], 30, 30, this);
-            
-            try{
-                //pause the program for quarter second(is in milliseconds)
-                Thread.sleep(250);
-               }
-               catch(InterruptedException e){}//<-- do nothing if exception occurs
-            //if the CPU is busy and can't sleep
-            
-            repaint();
+        }
+        else{
+            myChoices.setKey(myChoices.getKeyValues()[0]);
+            chosenChoice = myChoices.getKeyValues()[0];
         }
         
-        g.drawString("THE END", 400, 100);
-        */
+        //text that explains your choice "you did this"
+        page.drawString(explaintext[chosenChoice], 300, 100);
+        //System.out.println();
+        //will the images in an array work?
+        page.drawImage(choiceImages[chosenChoice], 30, 30, this);
+        
+        try{
+            //pause the program for quarter second(is in milliseconds)
+            Thread.sleep(250);
+           }
+           catch(InterruptedException e){}//<-- do nothing if exception occurs
+        //if the CPU is busy and can't sleep
+        
+        repaint();
+    }
+    
+    page.drawString("THE END", 400, 100);
+    
  }
 }
