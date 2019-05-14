@@ -13,7 +13,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 
-public class Background extends Applet implements MouseListener
+public class MainStory extends Applet implements MouseListener
 {
    private final int APPLET_WIDTH = 1000;
    private final int APPLET_HEIGHT = 1000;
