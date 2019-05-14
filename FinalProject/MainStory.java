@@ -94,7 +94,7 @@ public class MainStory extends Applet implements MouseListener
         ChoiceMap myChoices = new ChoiceMap(keys, vals);
   
    //-----------------------------------------------------------------
-   //  Creates several building, a cloud, and the ground square
+   //  Creates choice boxes and stores the photos
    //-----------------------------------------------------------------
    Image choiceImages[] = new Image[16];  
  public void init (){
@@ -161,7 +161,7 @@ public class MainStory extends Applet implements MouseListener
        choiceImages[15] = photo15;
         
        // sets background color and applet size
-       setBackground (Color.gray);
+       setBackground (Color.white);
        setSize (APPLET_WIDTH, APPLET_HEIGHT);
  }
  
@@ -217,7 +217,7 @@ public class MainStory extends Applet implements MouseListener
             +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
             +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
             page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 30, 30, this);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 30, 30, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 30, 90, this);
             
             // mouselistener sets true whatever one the use clicks
             if (choice1bool == true){
