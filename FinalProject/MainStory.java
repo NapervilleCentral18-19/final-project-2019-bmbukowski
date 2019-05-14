@@ -98,9 +98,11 @@ public class MainStory extends Applet implements MouseListener
    //-----------------------------------------------------------------
    Image choiceImages[] = new Image[16];  
  public void init (){
+       // creates two new boxes for choice rectangles and adds a mouselistener so the user can click which box they want to choose
        choice1 = new Rectangle (100, 500, Color.blue, 350, 100); 
        choice2 = new Rectangle (550, 500, Color.green, 350, 100);
        addMouseListener(this);
+       
        /*
        ArrayList<Image> photoList = new ArrayList<Image>();
       
@@ -158,7 +160,7 @@ public class MainStory extends Applet implements MouseListener
        choiceImages[14] = photo14;
        choiceImages[15] = photo15;
         
-   
+       // sets background color and applet size
        setBackground (Color.gray);
        setSize (APPLET_WIDTH, APPLET_HEIGHT);
  }
