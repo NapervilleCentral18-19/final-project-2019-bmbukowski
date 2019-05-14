@@ -42,22 +42,22 @@ public class MainStory extends Applet implements MouseListener
         //15=WIN
         
         //all the possible choices associated with the keys
-        int[][] vals = { {0},    //0 LOSE(so that there are no out of bounds errors) LOSE
+        int[][] vals = { {0, 0},    //0 LOSE(so that there are no out of bounds errors) LOSE
                          {3, 4}, //1
                          {1, 2}, //2
                          {5, 6}, //3
                          {7, 8}, //4
-                         {0},    //5
+                         {0, 0},    //5
                          {9, 10},//6
                          {9, 10},//7
-                         {0},    //8
+                         {0, 0},    //8
                          {11, 12},//9
-                         {0},    //10
-                         {15},   //11
+                         {0, 0},    //10
+                         {15, 15},   //11
                          {13, 14},//12
-                         {0},    //13
-                         {15},   //14
-                         {15} }; //15 WIN
+                         {0, 0},    //13
+                         {15, 15},   //14
+                         {15, 15} }; //15 WIN
                          
         //text associated with choices
         String[] choicetext = {"DIE", "Go to the abandoned waterpark", "Stay home",
@@ -225,7 +225,7 @@ public class MainStory extends Applet implements MouseListener
                 choice1bool = false; // true is changed to false for the next prompt to go
             }
             else if (choice2bool == true){
-                chosenChoice = myChoices.getKeyValues()[1];
+                chosenChoice = myChoices.getKeyValues()[1];//uh, some of them only have one index (just 0)
                 choice2bool = false; // true is changed to false for the next prompt to go
             }
                 
