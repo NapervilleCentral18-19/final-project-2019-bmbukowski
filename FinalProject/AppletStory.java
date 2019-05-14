@@ -124,7 +124,7 @@ public class AppletStory extends JApplet
     
     public void paint(Graphics g)
     {
-        /*
+        
         myChoices.setKey(chosenChoice);
         
         //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
@@ -166,6 +166,6 @@ public class AppletStory extends JApplet
         }
         
         g.drawString("THE END", 400, 100);
-        */
+        
     }
 }
