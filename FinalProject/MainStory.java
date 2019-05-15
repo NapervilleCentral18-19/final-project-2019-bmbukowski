@@ -203,30 +203,31 @@ public class MainStory extends Applet implements MouseListener
     choice2.setColor(page, Color.green);
     choice2.draw(page);
     count++;
-    
     myChoices.setKey(chosenChoice);
     
     //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
     page.drawString("You wake up one morning and want to go have an adventure.\n"+
     "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n", 100, 100);
-    while(myChoices.getKey() != 0 && myChoices.getKey() != 15)
+    if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
     {
         if(myChoices.getKeyValues().length > 1)
         {
             page.drawString("Will you:\n"
             +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
             +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 30, 30, this);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 30, 90, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 300, this);
             
             // mouselistener sets true whatever one the use clicks
             if (choice1bool == true){
                 chosenChoice = myChoices.getKeyValues()[0];
                 choice1bool = false; // true is changed to false for the next prompt to go
+                page.drawString("left\n", 400, 400);
             }
             else if (choice2bool == true){
                 chosenChoice = myChoices.getKeyValues()[1];
                 choice2bool = false; // true is changed to false for the next prompt to go
+                page.drawString("right\n", 400, 400);
             }
                 
             myChoices.setKey(chosenChoice);
