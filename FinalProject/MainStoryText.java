@@ -23,7 +23,6 @@ public class MainStoryText
         //all the choice keys
         int[] keys = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
         //0=DIE
-        //100=WIN
         //1=waterpark, 2=sleep, 3=uber, 4=walk, 5=straight uber, 
         //6=mcdonalds uber, 7=mcdonalds walk, 8= continue walk-kidnap, 9=nextdoor to waterpark,
         //10=shake die, 11=stay outside the park but take pictures,

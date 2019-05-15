@@ -1,16 +1,28 @@
 #BlueJ package file
-dependency1.from=Background
-dependency1.to=Rectangle
+dependency1.from=ChoiceTester
+dependency1.to=ChoiceMap
 dependency1.type=UsesDependency
-dependency2.from=Background
-dependency2.to=Main
+dependency2.from=MainStoryText
+dependency2.to=ChoiceMap
 dependency2.type=UsesDependency
-dependency3.from=ChoiceTester
+<<<<<<< HEAD
+dependency3.from=MainStory
+dependency3.to=Rectangle
+=======
+dependency3.from=AppletStory
 dependency3.to=ChoiceMap
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
 dependency3.type=UsesDependency
-dependency4.from=MainStoryText
-dependency4.to=ChoiceMap
+<<<<<<< HEAD
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
+=======
+dependency4.from=MainStory
+dependency4.to=Rectangle
 dependency4.type=UsesDependency
+<<<<<<< HEAD
 dependency5.from=AppletStory
 dependency5.to=ChoiceMap
 dependency5.type=UsesDependency
@@ -29,15 +41,45 @@ target1.editor.height=728
 target1.editor.width=683
 target1.editor.x=0
 target1.editor.y=0
+=======
+dependency5.from=MainStory
+dependency5.to=ChoiceMap
+dependency5.type=UsesDependency
+>>>>>>> 536cf303e2247ee8cad2baedee95a59e2aef716d
+objectbench.height=101
+<<<<<<< HEAD
+objectbench.width=1346
+package.editor.height=547
+package.editor.width=1248
+package.editor.x=-8
+package.editor.y=-8
+=======
+objectbench.width=915
+package.editor.height=433
+package.editor.width=817
+package.editor.x=644
+package.editor.y=145
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
+package.numDependencies=5
+package.numTargets=9
+package.showExtends=true
+package.showUses=true
+project.charset=UTF-8
+target1.editor.height=700
+target1.editor.width=1110
+target1.editor.x=293
+target1.editor.y=23
+>>>>>>> 38c186f0d1cc1a4a7ec8b3d8f6cc3aaeaebc5ebb
 target1.height=50
 target1.name=MainStoryText
 target1.naviview.expanded=true
 target1.showInterface=false
 target1.type=ClassTarget
 target1.typeParameters=
-target1.width=110
+target1.width=120
 target1.x=250
 target1.y=210
+<<<<<<< HEAD
 target10.editor.height=744
 target10.editor.width=1382
 target10.editor.x=-8
@@ -67,24 +109,23 @@ target11.typeParameters=
 target11.width=120
 target11.x=140
 target11.y=300
+=======
+>>>>>>> 38c186f0d1cc1a4a7ec8b3d8f6cc3aaeaebc5ebb
 target2.editor.height=700
 target2.editor.width=900
-target2.editor.x=83
-target2.editor.y=27
+target2.editor.x=32
+target2.editor.y=12
 target2.height=50
 target2.name=JButtonTest
+target2.naviview.expanded=true
 target2.showInterface=false
 target2.type=ClassTarget
 target2.typeParameters=
-target2.width=90
+target2.width=100
 target2.x=30
 target2.y=300
 target3.appletHeight=500
 target3.appletWidth=500
-target3.editor.height=700
-target3.editor.width=900
-target3.editor.x=173
-target3.editor.y=16
 target3.height=50
 target3.name=Startingpoint
 target3.naviview.expanded=true
@@ -92,43 +133,58 @@ target3.numberAppletParameters=0
 target3.showInterface=false
 target3.type=AppletTarget
 target3.typeParameters=
-target3.width=100
+target3.width=110
 target3.x=70
 target3.y=10
-target4.appletHeight=500
-target4.appletWidth=500
 target4.editor.height=700
-target4.editor.width=1085
-target4.editor.x=277
-target4.editor.y=56
+target4.editor.width=1139
+target4.editor.x=32
+target4.editor.y=12
 target4.height=50
-target4.name=Background
+target4.name=ChoiceTester
 target4.naviview.expanded=true
-target4.numberAppletParameters=0
 target4.showInterface=false
-target4.type=AppletTarget
+target4.type=ClassTarget
 target4.typeParameters=
-target4.width=90
-target4.x=170
-target4.y=70
-target5.editor.height=728
-target5.editor.width=683
+target4.width=110
+target4.x=130
+target4.y=210
+<<<<<<< HEAD
+=======
+target5.editor.height=700
+target5.editor.width=900
 target5.editor.x=0
 target5.editor.y=0
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
 target5.height=50
-target5.name=ChoiceTester
-target5.naviview.expanded=true
+target5.name=Rectangle
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
-target5.width=100
-target5.x=130
-target5.y=210
+target5.width=90
+target5.x=430
+target5.y=170
+target6.appletHeight=500
+target6.appletWidth=500
+<<<<<<< HEAD
+target6.editor.height=700
+target6.editor.width=900
+target6.editor.x=32
+target6.editor.y=12
+=======
+target6.editor.height=1026
+target6.editor.width=1696
+target6.editor.x=-8
+target6.editor.y=-8
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
 target6.height=50
-target6.name=Rectangle
+target6.name=AppletStory
+target6.naviview.expanded=true
+target6.numberAppletParameters=0
 target6.showInterface=false
-target6.type=ClassTarget
+target6.type=AppletTarget
 target6.typeParameters=
+<<<<<<< HEAD
 target6.width=80
 target6.x=70
 target6.y=70
@@ -140,12 +196,29 @@ target7.editor.x=683
 target7.editor.y=0
 target7.height=50
 target7.name=AppletStory
+=======
+target6.width=100
+<<<<<<< HEAD
+target6.x=400
+target6.y=20
+=======
+target6.x=10
+target6.y=130
+target7.editor.height=700
+target7.editor.width=900
+target7.editor.x=0
+target7.editor.y=0
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
+target7.height=50
+target7.name=ChoiceMap
+>>>>>>> 38c186f0d1cc1a4a7ec8b3d8f6cc3aaeaebc5ebb
 target7.naviview.expanded=true
 target7.numberAppletParameters=0
 target7.showInterface=false
 target7.type=AppletTarget
 target7.typeParameters=
 target7.width=90
+<<<<<<< HEAD
 target7.x=270
 target7.y=300
 target8.editor.height=700
@@ -154,11 +227,33 @@ target8.editor.x=341
 target8.editor.y=105
 target8.height=50
 target8.name=Main
+=======
+target7.x=230
+target7.y=10
+target8.appletHeight=500
+target8.appletWidth=500
+<<<<<<< HEAD
+target8.editor.height=744
+target8.editor.width=1382
+=======
+target8.editor.height=1026
+target8.editor.width=1696
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
+target8.editor.x=-8
+target8.editor.y=-8
+target8.height=50
+target8.name=MainStory
+<<<<<<< HEAD
+>>>>>>> 38c186f0d1cc1a4a7ec8b3d8f6cc3aaeaebc5ebb
 target8.naviview.expanded=true
+=======
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
+target8.numberAppletParameters=0
 target8.showInterface=false
-target8.type=ClassTarget
+target8.type=AppletTarget
 target8.typeParameters=
 target8.width=80
+<<<<<<< HEAD
 target8.x=330
 target8.y=100
 target9.editor.height=700
@@ -167,10 +262,34 @@ target9.editor.x=392
 target9.editor.y=150
 target9.height=50
 target9.name=ChoiceMap
+=======
+<<<<<<< HEAD
+target8.x=470
+target8.y=90
+=======
+target8.x=330
+target8.y=10
+>>>>>>> e875f11172707e8bbfa39b5a4edffadfa82d50b0
+target9.appletHeight=500
+target9.appletWidth=500
+target9.editor.height=700
+target9.editor.width=900
+target9.editor.x=32
+target9.editor.y=12
+target9.height=50
+target9.name=ImageAppletTest
+>>>>>>> 38c186f0d1cc1a4a7ec8b3d8f6cc3aaeaebc5ebb
 target9.naviview.expanded=true
+target9.numberAppletParameters=0
 target9.showInterface=false
-target9.type=ClassTarget
+target9.type=AppletTarget
 target9.typeParameters=
+<<<<<<< HEAD
 target9.width=80
 target9.x=180
 target9.y=10
+=======
+target9.width=130
+target9.x=140
+target9.y=300
+>>>>>>> 38c186f0d1cc1a4a7ec8b3d8f6cc3aaeaebc5ebb
