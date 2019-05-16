@@ -165,15 +165,18 @@ public class MainStory extends Applet implements MouseListener
        setSize (APPLET_WIDTH, APPLET_HEIGHT);
  }
  
+ //THIS WORKS :,,,,)
  public void mouseClicked(MouseEvent e) {
      // if the user clicks the left box, that is the choice they made and is now the first choice is true
-     if (e.getX() >= 50 && e.getX() <= 150 && e.getY() >= 350 && e.getY() <= 500){
-         choice1bool = true;
-     }
-     // if the user clicks the right box, that is the choice they made and is now the second choice is true
-     else if (e.getX() >= 500 && e.getX() <= 600 && e.getY() >= 350 && e.getY() <= 500){
-         choice2bool = true;
-     }
+     if(e.getY() > 500 && e.getY() < 601){
+         if(e.getX() > 99 && e.getX() < 451){
+                choice1bool = true;
+            }
+            // if the user clicks the right box, that is the choice they made and is now the second choice is true
+            else if (e.getX() > 549 && e.getX() < 901){
+                choice2bool = true;
+            }
+        }
  }
 
  public void mouseExited(MouseEvent e) {
@@ -242,7 +245,6 @@ public class MainStory extends Applet implements MouseListener
         page.drawString(explaintext[chosenChoice], 300, 100);
         //System.out.println();
         //will the images in an array work?
-        page.drawImage(choiceImages[chosenChoice], 30, 30, this);
         
         try{
             //pause the program for quarter second(is in milliseconds)
