@@ -208,29 +208,27 @@ public class MainStory extends Applet implements MouseListener
     count++;
     myChoices.setKey(chosenChoice);
     
-    //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-    page.drawString("You wake up one morning and want to go have an adventure.\n"+
-    "You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.\n", 100, 100);
     if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
     {
+        //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
+        page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
+        page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
         if(myChoices.getKeyValues().length > 1)
         {
             page.drawString("Will you:\n"
             +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
-            +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
+            +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 200);
             page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
             page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 300, this);
             
-            // mouselistener sets true whatever one the use clicks
+            // mouselistener sets true whatever one the user clicks
             if (choice1bool == true){
                 chosenChoice = myChoices.getKeyValues()[0];
                 choice1bool = false; // true is changed to false for the next prompt to go
-                page.drawString("left\n", 400, 400);
             }
             else if (choice2bool == true){
                 chosenChoice = myChoices.getKeyValues()[1];//uh, some of them only have one index (just 0)
                 choice2bool = false; // true is changed to false for the next prompt to go
-                page.drawString("right\n", 400, 400);
             }
                 
             myChoices.setKey(chosenChoice);
@@ -242,7 +240,7 @@ public class MainStory extends Applet implements MouseListener
         }
         
         //text that explains your choice "you did this"
-        page.drawString(explaintext[chosenChoice], 300, 100);
+        page.drawString(explaintext[chosenChoice], 100, 180);
         //System.out.println();
         //will the images in an array work?
         
@@ -256,7 +254,7 @@ public class MainStory extends Applet implements MouseListener
         repaint();
     }
     
-    page.drawString("THE END", 400, 100);
+    //page.drawString("THE END", 400, 100);
     
  }
 }
