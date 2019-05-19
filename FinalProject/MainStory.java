@@ -6,7 +6,7 @@
 
 import java.util.Random;
 import java.util.*;  
-import java.applet.Applet;
+import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.MouseListener;
@@ -22,12 +22,12 @@ public class MainStory extends Applet implements MouseListener
    private Color color;
    private int x = 0; // counter for paint method
    private Random generator = new Random();
-   private Rectangle choice1, choice2;
+   private Rectangle choice1, choice2, choice1background, choice2background;
    private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15;
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
    private boolean choice2bool = false;
-   int count = 0;
+   private int count = 0;
    
    //Text story stuff
         //all the choice keys
@@ -72,7 +72,7 @@ public class MainStory extends Applet implements MouseListener
             "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
             "You called an Uber.", "You start to walk to the waterpark.",
             "You told your Uber driver to take you straight to the waterpark."+
-            "\nBut it turns out that your Uber driver is an undercover cop!\nHe arrests you for going to an illegal place.",
+            "\nBut it turns out that your Uber driver is an undercover cop! \nHe arrests you for going to an illegal place.",
             
             "You told your Uber driver to drop you off at McDonald's.",
             "You walked to the McDonald's next door.",
@@ -99,8 +99,10 @@ public class MainStory extends Applet implements MouseListener
    Image choiceImages[] = new Image[16];  
  public void init (){
        // creates two new boxes for choice rectangles and adds a mouselistener so the user can click which box they want to choose
-       choice1 = new Rectangle (100, 500, Color.blue, 350, 100); 
-       choice2 = new Rectangle (550, 500, Color.green, 350, 100);
+       choice1 = new Rectangle (100, 500, Color.white, 350, 100); 
+       choice2 = new Rectangle (550, 500, Color.white, 350, 100);
+       choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
+       choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
        addMouseListener(this);
        
        /*
@@ -201,25 +203,43 @@ public class MainStory extends Applet implements MouseListener
  public void paint (Graphics page){
     setBackground (Color.black);
       
-    choice1.setColor(page, Color.blue);
-    choice1.draw(page);
-    choice2.setColor(page, Color.green);
-    choice2.draw(page);
-    count++;
     myChoices.setKey(chosenChoice);
     
     if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
     {
         //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
+        page.setColor(Color.blue);
+        page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
         page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
         if(myChoices.getKeyValues().length > 1)
         {
-            page.drawString("Will you:\n"
-            +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
-            +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 200);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 300, this);
+            if (myChoices.getKeyValues()[0] != 0){
+                choice1background.setColor(page, Color.blue);
+                choice1background.draw(page);
+                choice2background.setColor(page, Color.blue);
+                choice2background.draw(page);
+                choice1.setColor(page, Color.white);
+                choice1.draw(page);
+                choice2.setColor(page, Color.white);
+                choice2.draw(page);
+                count++;
+                
+                page.setColor(Color.blue);
+                page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+                page.drawString("Will you:\n"
+                +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
+                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 200);
+                page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
+                page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 300, 550, this);
+                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
+                page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
+            }
+            else{
+                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                page.drawString("THE END", 350, 350);
+            }
             
             // mouselistener sets true whatever one the user clicks
             if (choice1bool == true){
@@ -240,6 +260,7 @@ public class MainStory extends Applet implements MouseListener
         }
         
         //text that explains your choice "you did this"
+        page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         page.drawString(explaintext[chosenChoice], 100, 180);
         //System.out.println();
         //will the images in an array work?
