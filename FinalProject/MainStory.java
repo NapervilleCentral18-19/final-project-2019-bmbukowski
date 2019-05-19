@@ -27,6 +27,8 @@ public class MainStory extends Applet implements MouseListener
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
    private boolean choice2bool = false;
+   private boolean choice1lightup = false;
+   private boolean choice2lightup = false;
    private int count = 0;
    
    //Text story stuff
@@ -182,18 +184,25 @@ public class MainStory extends Applet implements MouseListener
  }
 
  public void mouseExited(MouseEvent e) {
-
  }
 
  public void mouseEntered(MouseEvent e) {
-
+     
  }
 
  public void mousePressed(MouseEvent e) {
  }
 
  public void mouseReleased(MouseEvent e) {
- 
+     if(e.getY() > 500 && e.getY() < 601){
+         if(e.getX() > 99 && e.getX() < 451){
+                choice1lightup = true;
+            }
+            // if the user clicks the right box, that is the choice they made and is now the second choice is true
+            else if (e.getX() > 549 && e.getX() < 901){
+                choice2lightup = true;
+            }
+        }
  }
  
    //-----------------------------------------------------------------
@@ -214,7 +223,7 @@ public class MainStory extends Applet implements MouseListener
         page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
         if(myChoices.getKeyValues().length > 1)
         {
-            if (myChoices.getKeyValues()[0] != 0){
+            if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
                 choice1background.setColor(page, Color.blue);
                 choice1background.draw(page);
                 choice2background.setColor(page, Color.blue);
@@ -239,6 +248,21 @@ public class MainStory extends Applet implements MouseListener
             else{
                 page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 page.drawString("THE END", 350, 350);
+            }
+            
+            if (choice1lightup == true){
+                page.setColor(Color.yellow);
+                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
+                page.setColor(Color.blue);
+                choice1lightup = false; // true is changed to false for the next prompt to go
+            }
+            else if (choice2lightup == true){
+                page.setColor(Color.yellow);
+                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
+                page.setColor(Color.blue);
+                choice2lightup = false; // true is changed to false for the next prompt to go
             }
             
             // mouselistener sets true whatever one the user clicks
