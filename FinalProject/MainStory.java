@@ -225,6 +225,13 @@ public class MainStory extends Applet implements MouseListener
     {
         if(myChoices.getKeyValues().length > 1)
         {
+<<<<<<< HEAD
+            page.drawString("Will you:\n"
+            +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
+            +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 400, 400, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 400, this);
+=======
             if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
                 //choice1background.setColor(page, Color.blue);
                 choice1background.draw(page);
@@ -285,6 +292,7 @@ public class MainStory extends Applet implements MouseListener
                 choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
                 choice2lightup = false; // true is changed to false for the next prompt to go
             }
+>>>>>>> 938e472e38ac1bb93e8273e5bc69ed18f3adf58d
             
             // mouselistener sets true whatever one the user clicks
             if (choice1bool == true){
