@@ -95,6 +95,7 @@ public class MainStory extends Applet implements MouseListener
         Scanner inputer = new Scanner(System.in);
         ChoiceMap myChoices = new ChoiceMap(keys, vals);
   
+        boolean firstchoice = false;
    //-----------------------------------------------------------------
    //  Creates choice boxes and stores the photos
    //-----------------------------------------------------------------
@@ -214,20 +215,22 @@ public class MainStory extends Applet implements MouseListener
       
     myChoices.setKey(chosenChoice);
     
+    //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
+    page.setColor(Color.blue);
+    page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+    page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
+    page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
+    
     if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
     {
-        //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-        page.setColor(Color.blue);
-        page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-        page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
-        page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
         if(myChoices.getKeyValues().length > 1)
         {
             if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
-                choice1background.setColor(page, Color.blue);
+                //choice1background.setColor(page, Color.blue);
                 choice1background.draw(page);
-                choice2background.setColor(page, Color.blue);
+                //choice2background.setColor(page, Color.blue);
                 choice2background.draw(page);
+                
                 choice1.setColor(page, Color.white);
                 choice1.draw(page);
                 choice2.setColor(page, Color.white);
@@ -236,11 +239,11 @@ public class MainStory extends Applet implements MouseListener
                 
                 page.setColor(Color.blue);
                 page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                page.drawString("Will you:\n"
-                +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
-                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 200);
+                page.drawString("Will you:", 100, 200);
+                page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
+                page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 240);
                 page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-                page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 300, 550, this);
+                page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
                 page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                 page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
@@ -251,17 +254,35 @@ public class MainStory extends Applet implements MouseListener
             }
             
             if (choice1lightup == true){
-                page.setColor(Color.yellow);
+                
+                //makes the border of the rectangle orange
+                choice1background = new Rectangle (90, 490, Color.orange, 370, 120); 
+                choice1background.draw(page);
+                choice1.draw(page);
+                
+                page.setColor(Color.orange);
                 page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
+
                 page.setColor(Color.blue);
+                //reseting the rectangle to be blue
+                choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
                 choice1lightup = false; // true is changed to false for the next prompt to go
             }
             else if (choice2lightup == true){
-                page.setColor(Color.yellow);
+                
+                //makes the border of the rectangle orange
+                choice2background = new Rectangle (540, 490, Color.orange, 370, 120);
+                choice2background.draw(page);
+                choice2.draw(page);
+                
+                page.setColor(Color.orange);
                 page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
+                
                 page.setColor(Color.blue);
+                //reseting the rectangle to be blue
+                choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
                 choice2lightup = false; // true is changed to false for the next prompt to go
             }
             
