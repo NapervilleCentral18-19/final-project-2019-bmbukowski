@@ -215,8 +215,8 @@ public class MainStory extends Applet implements MouseListener
             page.drawString("Will you:\n"
             +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
             +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 300, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 400, 400, this);
+            page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 400, this);
             
             // mouselistener sets true whatever one the use clicks
             if (choice1bool == true){
