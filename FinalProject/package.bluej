@@ -15,11 +15,16 @@ dependency5.from=MainStory
 dependency5.to=ChoiceMap
 dependency5.type=UsesDependency
 objectbench.height=101
-objectbench.width=915
+objectbench.width=925
 package.editor.height=433
 package.editor.width=817
+<<<<<<< HEAD
 package.editor.x=181
 package.editor.y=86
+=======
+package.editor.x=258
+package.editor.y=45
+>>>>>>> 938e472e38ac1bb93e8273e5bc69ed18f3adf58d
 package.numDependencies=5
 package.numTargets=9
 package.showExtends=true
@@ -91,8 +96,8 @@ target5.x=430
 target5.y=170
 target6.appletHeight=500
 target6.appletWidth=500
-target6.editor.height=1026
-target6.editor.width=1696
+target6.editor.height=788
+target6.editor.width=1386
 target6.editor.x=-8
 target6.editor.y=-8
 target6.height=50
@@ -120,10 +125,17 @@ target7.x=230
 target7.y=10
 target8.appletHeight=500
 target8.appletWidth=500
+<<<<<<< HEAD
 target8.editor.height=780
 target8.editor.width=1378
 target8.editor.x=-8
 target8.editor.y=0
+=======
+target8.editor.height=727
+target8.editor.width=1280
+target8.editor.x=24
+target8.editor.y=101
+>>>>>>> 938e472e38ac1bb93e8273e5bc69ed18f3adf58d
 target8.height=50
 target8.name=MainStory
 target8.naviview.expanded=true
