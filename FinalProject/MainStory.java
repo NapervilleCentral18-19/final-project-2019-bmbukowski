@@ -209,30 +209,33 @@ public class MainStory extends Applet implements MouseListener
    //-----------------------------------------------------------------
    //  Paints the items on the applet.
    //-----------------------------------------------------------------
-
+ 
+ int counter = 1;
  public void paint (Graphics page){
     setBackground (Color.black);
       
     myChoices.setKey(chosenChoice);
     
     //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-    page.setColor(Color.blue);
-    page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-    page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
-    page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
     
     if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
     {
+        if (counter == 1){
+            page.setColor(Color.blue);
+            page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+            page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
+            page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
+        }
         if(myChoices.getKeyValues().length > 1)
         {
-<<<<<<< HEAD
             page.drawString("Will you:\n"
             +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
             +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
             page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 400, 400, this);
             page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 400, this);
-=======
+
             if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
+                counter = 0;
                 //choice1background.setColor(page, Color.blue);
                 choice1background.draw(page);
                 //choice2background.setColor(page, Color.blue);
@@ -258,6 +261,8 @@ public class MainStory extends Applet implements MouseListener
             else{
                 page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                 page.drawString("THE END", 350, 350);
+                
+                if(myChoices.getKey() == 0) counter = 1;
             }
             
             if (choice1lightup == true){
@@ -292,7 +297,7 @@ public class MainStory extends Applet implements MouseListener
                 choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
                 choice2lightup = false; // true is changed to false for the next prompt to go
             }
->>>>>>> 938e472e38ac1bb93e8273e5bc69ed18f3adf58d
+
             
             // mouselistener sets true whatever one the user clicks
             if (choice1bool == true){
