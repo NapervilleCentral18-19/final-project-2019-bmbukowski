@@ -15,19 +15,11 @@ dependency5.from=MainStory
 dependency5.to=ChoiceMap
 dependency5.type=UsesDependency
 objectbench.height=101
-<<<<<<< HEAD
-objectbench.width=732
-package.editor.height=409
-package.editor.width=634
-package.editor.x=543
-package.editor.y=65
-=======
 objectbench.width=925
 package.editor.height=433
 package.editor.width=827
 package.editor.x=174
 package.editor.y=193
->>>>>>> 6d4944b1989e85e0fd6534526cb264924c2140dd
 package.numDependencies=5
 package.numTargets=9
 package.showExtends=true
