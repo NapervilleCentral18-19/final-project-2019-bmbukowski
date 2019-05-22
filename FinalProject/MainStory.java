@@ -193,6 +193,7 @@ public class MainStory extends Applet implements MouseListener
                    start = true;
           }
  }
+}
 
  public void mouseExited(MouseEvent e) {
  }
