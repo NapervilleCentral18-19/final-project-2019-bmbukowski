@@ -16,10 +16,22 @@ dependency5.to=ChoiceMap
 dependency5.type=UsesDependency
 objectbench.height=101
 objectbench.width=925
+<<<<<<< HEAD
 package.editor.height=433
 package.editor.width=817
 package.editor.x=297
 package.editor.y=62
+=======
+package.editor.height=432
+package.editor.width=827
+<<<<<<< HEAD
+package.editor.x=312
+package.editor.y=54
+=======
+package.editor.x=261
+package.editor.y=86
+>>>>>>> 88ddc57690386b278789c3e13d18c5ef53f41c0a
+>>>>>>> 54c5bcd224d7bcabd2a74bdf9a5e24a8b34186aa
 package.numDependencies=5
 package.numTargets=9
 package.showExtends=true
@@ -82,6 +94,7 @@ target5.editor.x=0
 target5.editor.y=0
 target5.height=50
 target5.name=Rectangle
+target5.naviview.expanded=true
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
@@ -119,10 +132,22 @@ target7.x=230
 target7.y=10
 target8.appletHeight=500
 target8.appletWidth=500
+<<<<<<< HEAD
 target8.editor.height=727
 target8.editor.width=1280
 target8.editor.x=339
 target8.editor.y=23
+=======
+target8.editor.height=728
+<<<<<<< HEAD
+target8.editor.width=683
+target8.editor.x=683
+=======
+target8.editor.width=1127
+target8.editor.x=0
+>>>>>>> 88ddc57690386b278789c3e13d18c5ef53f41c0a
+target8.editor.y=0
+>>>>>>> 54c5bcd224d7bcabd2a74bdf9a5e24a8b34186aa
 target8.height=50
 target8.name=MainStory
 target8.naviview.expanded=true
@@ -131,7 +156,7 @@ target8.showInterface=false
 target8.type=AppletTarget
 target8.typeParameters=
 target8.width=80
-target8.x=330
+target8.x=380
 target8.y=10
 target9.appletHeight=500
 target9.appletWidth=500

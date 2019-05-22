@@ -12,6 +12,7 @@ import java.awt.event.*;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
+import java.awt.Color;
 
 public class MainStory extends Applet implements MouseListener
 {
@@ -22,14 +23,15 @@ public class MainStory extends Applet implements MouseListener
    private Color color;
    private int x = 0; // counter for paint method
    private Random generator = new Random();
-   private Rectangle choice1, choice2, choice1background, choice2background;
-   private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15;
+   private Rectangle choice1, choice2, choice1background, choice2background, startRec;
+   private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15,background;
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
    private boolean choice2bool = false;
    private boolean choice1lightup = false;
    private boolean choice2lightup = false;
    private int count = 0;
+  // private boolean start = false;
    
    //Text story stuff
         //all the choice keys
@@ -95,6 +97,7 @@ public class MainStory extends Applet implements MouseListener
         Scanner inputer = new Scanner(System.in);
         ChoiceMap myChoices = new ChoiceMap(keys, vals);
   
+        boolean firstchoice = false;
    //-----------------------------------------------------------------
    //  Creates choice boxes and stores the photos
    //-----------------------------------------------------------------
@@ -105,29 +108,8 @@ public class MainStory extends Applet implements MouseListener
        choice2 = new Rectangle (550, 500, Color.white, 350, 100);
        choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
        choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
+       startRec = new Rectangle (250, 250, Color.gray, 370, 120);
        addMouseListener(this);
-       
-       /*
-       ArrayList<Image> photoList = new ArrayList<Image>();
-      
-       // adds all photos to an arraylist
-       photo0 = getImage(getDocumentBase(),"Images\\death.jpg"); photoList.add(photo0);
-       photo1 = getImage(getDocumentBase(),"Images\\waterpark.jpg"); photoList.add(photo1); 
-       photo2 = getImage(getDocumentBase(),"Images\\stayhome.jpg"); photoList.add(photo2);
-       photo3 = getImage(getDocumentBase(),"Images\\uber.jpg"); photoList.add(photo3);
-       photo4 = getImage(getDocumentBase(),"Images\\walk.jpg"); photoList.add(photo4);
-       photo5 = getImage(getDocumentBase(),"Images\\uberispolice.jpg"); photoList.add(photo5);
-       photo6 = getImage(getDocumentBase(),"Images\\mcdonalds.jpg"); photoList.add(photo6);
-       photo7 = getImage(getDocumentBase(),"Images\\continuewalking.jpg"); photoList.add(photo7);
-       photo8 = getImage(getDocumentBase(),"Images\\kidnapped.jpg"); photoList.add(photo8);
-       photo9 = getImage(getDocumentBase(),"Images\\continuetowaterpark.jpg"); photoList.add(photo9);
-       photo10 = getImage(getDocumentBase(),"Images\\shake.jpg"); photoList.add(photo10);
-       photo11 = getImage(getDocumentBase(),"Images\\takephotos.jpg"); photoList.add(photo11);
-       photo12 = getImage(getDocumentBase(),"Images\\goinside.jpg"); photoList.add(photo12);
-       photo13 = getImage(getDocumentBase(),"Images\\upstairs.jpg"); photoList.add(photo13);
-       photo14 = getImage(getDocumentBase(),"Images\\downstairs.jpg"); photoList.add(photo14);
-       photo15 = getImage(getDocumentBase(),"Images\\treasure.jpg"); photoList.add(photo15);
-       */
       
        //Images for story
        photo0 = getImage(getDocumentBase(), "Images\\death.jpg");
@@ -171,17 +153,27 @@ public class MainStory extends Applet implements MouseListener
  
  //THIS WORKS :,,,,)
  public void mouseClicked(MouseEvent e) {
-     // if the user clicks the left box, that is the choice they made and is now the first choice is true
-     if(e.getY() > 500 && e.getY() < 601){
-         if(e.getX() > 99 && e.getX() < 451){
+    // if the user clicks the left box, that is the choice they made and is now the first choice is true
+    //if (start){
+        if(e.getY() > 500 && e.getY() < 601){
+            if(e.getX() > 99 && e.getX() < 451){
                 choice1bool = true;
             }
-            // if the user clicks the right box, that is the choice they made and is now the second choice is true
+               // if the user clicks the right box, that is the choice they made and is now the second choice is true
             else if (e.getX() > 549 && e.getX() < 901){
                 choice2bool = true;
             }
         }
+    //}
+    /*else{
+        if(e.getY() > 249 && e.getY() < 621){
+            if(e.getX() > 249 && e.getX() < 371){
+                start = true;
+            }
+        }
+    } */
  }
+
 
  public void mouseExited(MouseEvent e) {
  }
@@ -194,112 +186,162 @@ public class MainStory extends Applet implements MouseListener
  }
 
  public void mouseReleased(MouseEvent e) {
-     if(e.getY() > 500 && e.getY() < 601){
-         if(e.getX() > 99 && e.getX() < 451){
-                choice1lightup = true;
+    //if (start == true){
+        if(e.getY() > 500 && e.getY() < 601){
+            if(e.getX() > 99 && e.getX() < 451){
+                   choice1lightup = true;
             }
             // if the user clicks the right box, that is the choice they made and is now the second choice is true
             else if (e.getX() > 549 && e.getX() < 901){
-                choice2lightup = true;
+                   choice2lightup = true;
             }
         }
+   // }
  }
+ 
  
    //-----------------------------------------------------------------
    //  Paints the items on the applet.
    //-----------------------------------------------------------------
-
+   
  public void paint (Graphics page){
-    setBackground (Color.black);
-      
-    myChoices.setKey(chosenChoice);
-    
-    if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
-    {
-        //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
-        page.setColor(Color.blue);
-        page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-        page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
-        page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
-        if(myChoices.getKeyValues().length > 1)
-        {
-            if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
-                choice1background.setColor(page, Color.blue);
-                choice1background.draw(page);
-                choice2background.setColor(page, Color.blue);
-                choice2background.draw(page);
-                choice1.setColor(page, Color.white);
-                choice1.draw(page);
-                choice2.setColor(page, Color.white);
-                choice2.draw(page);
-                count++;
-                
-                page.setColor(Color.blue);
-                page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-                page.drawString("Will you:\n"
-                +myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
-                +myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 200);
-                page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-                page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 300, 550, this);
-                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-                page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
-                page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
-            }
-            else{
-                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-                page.drawString("THE END", 350, 350);
-            }
-            
-            if (choice1lightup == true){
-                page.setColor(Color.yellow);
-                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-                page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
-                page.setColor(Color.blue);
-                choice1lightup = false; // true is changed to false for the next prompt to go
-            }
-            else if (choice2lightup == true){
-                page.setColor(Color.yellow);
-                page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-                page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
-                page.setColor(Color.blue);
-                choice2lightup = false; // true is changed to false for the next prompt to go
-            }
-            
-            // mouselistener sets true whatever one the user clicks
-            if (choice1bool == true){
-                chosenChoice = myChoices.getKeyValues()[0];
-                choice1bool = false; // true is changed to false for the next prompt to go
-            }
-            else if (choice2bool == true){
-                chosenChoice = myChoices.getKeyValues()[1];//uh, some of them only have one index (just 0)
-                choice2bool = false; // true is changed to false for the next prompt to go
-            }
-                
-            myChoices.setKey(chosenChoice);
-            //System.out.println();
-        }
-        else{
-            myChoices.setKey(myChoices.getKeyValues()[0]);
-            chosenChoice = myChoices.getKeyValues()[0];
-        }
-        
-        //text that explains your choice "you did this"
-        page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-        page.drawString(explaintext[chosenChoice], 100, 180);
-        //System.out.println();
-        //will the images in an array work?
-        
-        try{
-            //pause the program for quarter second(is in milliseconds)
-            Thread.sleep(250);
+    //if (start == true){
+       Color customColor = new Color(255,163,106);
+       Color buttonColor = new Color(85,138,204);
+       Color buttonClick = new Color(230,198,142); 
+
+       background = getImage(getDocumentBase(), "Images\\background.jpg");
+       page.drawImage(background, 0, 0, this);
+
+       myChoices.setKey(chosenChoice);
+
+       //game doesn't end until the player either 1.dies, 2.wins, 3.stays home
+
+
+       if(myChoices.getKey() != 0 && myChoices.getKey() != 15)
+       {
+           if(myChoices.getKeyValues().length > 1)
+           {
+               if (myChoices.getKeyValues()[0] == 1){
+                  page.setColor(customColor);
+                  page.setFont(new Font("Serif", Font.PLAIN, 20));
+                  page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
+                  page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
+               }
+
+               //page.drawString("Will you:\n"
+               //+myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]]+"\n"
+               //+myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 100);
+               //page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 400, 400, this);
+               //page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 400, this);
+
+               if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
+                   page.setColor(buttonColor);
+                   //choice1background.setColor(page, Color.blue);
+                   choice1background.draw(page);
+                   //choice2background.setColor(page, Color.blue);
+                   choice2background.draw(page);
+
+                   choice1.setColor(page, Color.white);
+                   choice1.draw(page);
+                   choice2.setColor(page, Color.white);
+                   choice2.draw(page);
+                   count++;
+
+                   page.setColor(Color.blue);
+                   page.setFont(new Font("Serif", Font.PLAIN, 20));
+                   page.drawString("Will you:", 100, 200);
+                   page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
+                   page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 240);
+<<<<<<< HEAD
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
+                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+=======
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+>>>>>>> 88ddc57690386b278789c3e13d18c5ef53f41c0a
+                   page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
+                   page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
+               }
+               else{
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+                   page.drawString("THE END", 350, 350);
+               }
+
+               if (choice1lightup == true){
+                   //makes the border of the rectangle orange
+                   choice1background = new Rectangle (90, 490, buttonClick, 370, 120); 
+                   choice1background.draw(page);
+                   choice1.draw(page);
+
+                   page.setColor(buttonClick);
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+                   page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
+
+                   page.setColor(Color.blue);
+                   //reseting the rectangle to be blue
+                   choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
+                   choice1lightup = false; // true is changed to false for the next prompt to go
+               }
+               else if (choice2lightup == true){
+                   //makes the border of the rectangle orange
+                   choice2background = new Rectangle (540, 490, buttonClick, 370, 120);
+                   choice2background.draw(page);
+                   choice2.draw(page);
+
+                   page.setColor(buttonClick);
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+                   page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
+
+                   page.setColor(buttonColor);
+                   //reseting the rectangle to be blue
+                   choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
+                   choice2lightup = false; // true is changed to false for the next prompt to go
+               }
+
+
+               // mouselistener sets true whatever one the user clicks
+               if (choice1bool == true){
+                   chosenChoice = myChoices.getKeyValues()[0];
+                   choice1bool = false; // true is changed to false for the next prompt to go
+               }
+               else if (choice2bool == true){
+                   chosenChoice = myChoices.getKeyValues()[1];//uh, some of them only have one index (just 0)
+                   choice2bool = false; // true is changed to false for the next prompt to go
+               }
+
+               myChoices.setKey(chosenChoice);
+               //System.out.println();
            }
-           catch(InterruptedException e){}//<-- do nothing if exception occurs
-        //if the CPU is busy and can't sleep
+           else{
+               myChoices.setKey(myChoices.getKeyValues()[0]);
+               chosenChoice = myChoices.getKeyValues()[0];
+           }
+
+           //text that explains your choice "you did this"
+           page.setFont(new Font("Serif", Font.PLAIN, 20));
+           page.drawString(explaintext[chosenChoice], 100, 180);
+           //System.out.println();
+           //will the images in an array work?
+           
+           try{
+               //pause the program for quarter second(is in milliseconds)
+               Thread.sleep(250);
+              }
+              catch(InterruptedException e){}//<-- do nothing if exception occurs
+              
+           //if the CPU is busy and can't sleep
+
+           repaint();
+       }
+   // }
+    //else{
+        //startRec.draw(page);
         
-        repaint();
-    }
-    
-    //page.drawString("THE END", 400, 100);
-    
+        //page.setFont(new Font("Serif", Font.PLAIN, 50));
+        //page.drawString("Press to start", 350, 350);
+   // }
  }
 }
