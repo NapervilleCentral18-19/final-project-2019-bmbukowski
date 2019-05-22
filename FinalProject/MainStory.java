@@ -173,7 +173,7 @@ public class MainStory extends Applet implements MouseListener
         }
     } */
  }
-}
+
 
  public void mouseExited(MouseEvent e) {
  }
@@ -253,8 +253,8 @@ public class MainStory extends Applet implements MouseListener
                    page.drawString("Will you:", 100, 200);
                    page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
                    page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 240);
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
                    page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
