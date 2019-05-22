@@ -173,7 +173,7 @@ public class MainStory extends Applet implements MouseListener
         }
     } */
  }
-}
+
 
  public void mouseExited(MouseEvent e) {
  }
@@ -224,7 +224,7 @@ public class MainStory extends Applet implements MouseListener
            {
                if (myChoices.getKeyValues()[0] == 1){
                   page.setColor(customColor);
-                  page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+                  page.setFont(new Font("Serif", Font.PLAIN, 20));
                   page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
                   page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
                }
@@ -249,50 +249,49 @@ public class MainStory extends Applet implements MouseListener
                    count++;
 
                    page.setColor(Color.blue);
-                   page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+                   page.setFont(new Font("Serif", Font.PLAIN, 20));
                    page.drawString("Will you:", 100, 200);
                    page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
                    page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 240);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
-                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
                }
                else{
-                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
                    page.drawString("THE END", 350, 350);
                }
 
                if (choice1lightup == true){
                    //makes the border of the rectangle orange
                    choice1background = new Rectangle (90, 490, buttonClick, 370, 120); 
-                   choice1background.setColor(page, buttonClick);
+                   choice1background.draw(page);
                    choice1.draw(page);
 
-                   page.setColor(Color.blue);
-                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                   page.setColor(buttonClick);
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
 
-                   page.setColor(buttonColor);
+                   page.setColor(Color.blue);
                    //reseting the rectangle to be blue
-                   choice1background = new Rectangle (90, 490, buttonColor, 370, 120); 
+                   choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
                    choice1lightup = false; // true is changed to false for the next prompt to go
                }
                else if (choice2lightup == true){
-
                    //makes the border of the rectangle orange
                    choice2background = new Rectangle (540, 490, buttonClick, 370, 120);
-                   choice2background.setColor(page, buttonClick);
+                   choice2background.draw(page);
                    choice2.draw(page);
 
-                   page.setColor(Color.blue);
-                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                   page.setColor(buttonClick);
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
 
                    page.setColor(buttonColor);
                    //reseting the rectangle to be blue
-                   choice2background = new Rectangle (540, 490, buttonColor, 370, 120);
+                   choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
                    choice2lightup = false; // true is changed to false for the next prompt to go
                }
 
@@ -316,7 +315,7 @@ public class MainStory extends Applet implements MouseListener
            }
 
            //text that explains your choice "you did this"
-           page.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+           page.setFont(new Font("Serif", Font.PLAIN, 20));
            page.drawString(explaintext[chosenChoice], 100, 180);
            //System.out.println();
            //will the images in an array work?
@@ -335,7 +334,7 @@ public class MainStory extends Applet implements MouseListener
     //else{
         //startRec.draw(page);
         
-        //page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+        //page.setFont(new Font("Serif", Font.PLAIN, 50));
         //page.drawString("Press to start", 350, 350);
    // }
  }
