@@ -23,7 +23,7 @@ public class MainStory extends Applet implements MouseListener
    private Color color;
    private int x = 0; // counter for paint method
    private Random generator = new Random();
-   private Rectangle choice1, choice2, choice1background, choice2background, start;
+   private Rectangle choice1, choice2, choice1background, choice2background, startRec;
    private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15,background;
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
@@ -31,7 +31,7 @@ public class MainStory extends Applet implements MouseListener
    private boolean choice1lightup = false;
    private boolean choice2lightup = false;
    private int count = 0;
-   private boolean start = false;
+  // private boolean start = false;
    
    //Text story stuff
         //all the choice keys
@@ -108,30 +108,8 @@ public class MainStory extends Applet implements MouseListener
        choice2 = new Rectangle (550, 500, Color.white, 350, 100);
        choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
        choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
-       start = new Rectangle (540, 490, Color.blue, 370, 120);
+       startRec = new Rectangle (250, 250, Color.gray, 370, 120);
        addMouseListener(this);
-       
-       /*
-       ArrayList<Image> photoList = new ArrayList<Image>();
-      
-       // adds all photos to an arraylist
-       photo0 = getImage(getDocumentBase(),"Images\\death.jpg"); photoList.add(photo0);
-       photo1 = getImage(getDocumentBase(),"Images\\waterpark.jpg"); photoList.add(photo1); 
-       photo2 = getImage(getDocumentBase(),"Images\\stayhome.jpg"); photoList.add(photo2);
-       photo3 = getImage(getDocumentBase(),"Images\\uber.jpg"); photoList.add(photo3);
-       photo4 = getImage(getDocumentBase(),"Images\\walk.jpg"); photoList.add(photo4);
-       photo5 = getImage(getDocumentBase(),"Images\\uberispolice.jpg"); photoList.add(photo5);
-       photo6 = getImage(getDocumentBase(),"Images\\mcdonalds.jpg"); photoList.add(photo6);
-       photo7 = getImage(getDocumentBase(),"Images\\continuewalking.jpg"); photoList.add(photo7);
-       photo8 = getImage(getDocumentBase(),"Images\\kidnapped.jpg"); photoList.add(photo8);
-       photo9 = getImage(getDocumentBase(),"Images\\continuetowaterpark.jpg"); photoList.add(photo9);
-       photo10 = getImage(getDocumentBase(),"Images\\shake.jpg"); photoList.add(photo10);
-       photo11 = getImage(getDocumentBase(),"Images\\takephotos.jpg"); photoList.add(photo11);
-       photo12 = getImage(getDocumentBase(),"Images\\goinside.jpg"); photoList.add(photo12);
-       photo13 = getImage(getDocumentBase(),"Images\\upstairs.jpg"); photoList.add(photo13);
-       photo14 = getImage(getDocumentBase(),"Images\\downstairs.jpg"); photoList.add(photo14);
-       photo15 = getImage(getDocumentBase(),"Images\\treasure.jpg"); photoList.add(photo15);
-       */
       
        //Images for story
        photo0 = getImage(getDocumentBase(), "Images\\death.jpg");
@@ -175,23 +153,25 @@ public class MainStory extends Applet implements MouseListener
  
  //THIS WORKS :,,,,)
  public void mouseClicked(MouseEvent e) {
-     // if the user clicks the left box, that is the choice they made and is now the first choice is true
-     if (start == true){
+    // if the user clicks the left box, that is the choice they made and is now the first choice is true
+    //if (start){
         if(e.getY() > 500 && e.getY() < 601){
             if(e.getX() > 99 && e.getX() < 451){
-                   choice1bool = true;
-               }
+                choice1bool = true;
+            }
                // if the user clicks the right box, that is the choice they made and is now the second choice is true
-               else if (e.getX() > 549 && e.getX() < 901){
-                   choice2bool = true;
-               }
-           }
-     }
-     else 
-        if(e.getY() > 500 && e.getY() < 601){
-            if(e.getX() > 99 && e.getX() < 451){
-                   start = true;
-          }
+            else if (e.getX() > 549 && e.getX() < 901){
+                choice2bool = true;
+            }
+        }
+    //}
+    /*else{
+        if(e.getY() > 249 && e.getY() < 621){
+            if(e.getX() > 249 && e.getX() < 371){
+                start = true;
+            }
+        }
+    } */
  }
 
  public void mouseExited(MouseEvent e) {
@@ -205,19 +185,17 @@ public class MainStory extends Applet implements MouseListener
  }
 
  public void mouseReleased(MouseEvent e) {
-     if(e.getY() > 500 && e.getY() < 601){
-         if(e.getX() > 99 && e.getX() < 451){
-                choice1lightup = true;
+    //if (start == true){
+        if(e.getY() > 500 && e.getY() < 601){
+            if(e.getX() > 99 && e.getX() < 451){
+                   choice1lightup = true;
             }
             // if the user clicks the right box, that is the choice they made and is now the second choice is true
             else if (e.getX() > 549 && e.getX() < 901){
-                choice2lightup = true;
+                   choice2lightup = true;
             }
         }
- }
-   
- public void restart(){
-   start = false;
+   // }
  }
  
  
@@ -226,7 +204,7 @@ public class MainStory extends Applet implements MouseListener
    //-----------------------------------------------------------------
    
  public void paint (Graphics page){
-    if (start == true){
+    //if (start == true){
        Color customColor = new Color(255,163,106);
        Color buttonColor = new Color(85,138,204);
        Color buttonClick = new Color(230,198,142); 
@@ -286,7 +264,6 @@ public class MainStory extends Applet implements MouseListener
                }
 
                if (choice1lightup == true){
-
                    //makes the border of the rectangle orange
                    choice1background = new Rectangle (90, 490, buttonClick, 370, 120); 
                    choice1background.setColor(page, buttonClick);
@@ -342,21 +319,23 @@ public class MainStory extends Applet implements MouseListener
            page.drawString(explaintext[chosenChoice], 100, 180);
            //System.out.println();
            //will the images in an array work?
-
+           
            try{
                //pause the program for quarter second(is in milliseconds)
                Thread.sleep(250);
               }
               catch(InterruptedException e){}//<-- do nothing if exception occurs
+              
            //if the CPU is busy and can't sleep
 
            repaint();
        }
-    }
-    else{
-        page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-        page.drawString("Press to start", 350, 350);
-    }
-    
+   // }
+    //else{
+        //startRec.draw(page);
+        
+        //page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+        //page.drawString("Press to start", 350, 350);
+   // }
  }
 }
