@@ -250,22 +250,19 @@ public class MainStory extends Applet implements MouseListener
 
                    page.setColor(Color.blue);
                    page.setFont(new Font("Serif", Font.PLAIN, 20));
-                   page.drawString("Will you:", 100, 200);
-                   page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
-                   page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 240);
-<<<<<<< HEAD
+                   page.drawString("Will you:", 90, 200);
+                   page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 90, 250);
+                   page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 540, 250);
+                   
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
                    page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-=======
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
-                   page.setFont(new Font("Serif", Font.PLAIN, 50));
->>>>>>> 88ddc57690386b278789c3e13d18c5ef53f41c0a
+                   
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
                }
                else{
+                   page.setColor(customColor);
                    page.setFont(new Font("Serif", Font.PLAIN, 50));
                    page.drawString("THE END", 350, 350);
                }
@@ -314,16 +311,18 @@ public class MainStory extends Applet implements MouseListener
 
                myChoices.setKey(chosenChoice);
                //System.out.println();
+               
            }
            else{
                myChoices.setKey(myChoices.getKeyValues()[0]);
                chosenChoice = myChoices.getKeyValues()[0];
            }
 
-           //text that explains your choice "you did this"
-           page.setFont(new Font("Serif", Font.PLAIN, 20));
-           page.drawString(explaintext[chosenChoice], 100, 180);
-           //System.out.println();
+           if(myChoices.getKeyValues()[0] != 1){
+               //text that explains your choice "you did this"
+               page.setFont(new Font("Serif", Font.PLAIN, 20));
+               page.drawString(explaintext[chosenChoice], 90, 180);
+            }
            //will the images in an array work?
            
            try{
