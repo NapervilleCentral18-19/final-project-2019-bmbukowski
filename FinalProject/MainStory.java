@@ -250,6 +250,7 @@ public class MainStory extends Applet implements MouseListener
                    choice2.draw(page);
                    count++;
 
+<<<<<<< HEAD
                    page.setColor(customColor);
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
                    page.drawString("Will you", 450, 190);
@@ -265,11 +266,28 @@ public class MainStory extends Applet implements MouseListener
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
 
+=======
+                   page.setColor(Color.blue);
+                   page.setFont(new Font("Serif", Font.PLAIN, 20));
+                   page.drawString("Will you:", 90, 200);
+                   page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 90, 250);
+                   page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 540, 250);
+                   
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
+                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+                   
+>>>>>>> 9c4e75c307c2c9fab29dbad95a172a72ba095fc4
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
                }
                else{
+<<<<<<< HEAD
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+=======
+                   page.setColor(customColor);
+                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+>>>>>>> 9c4e75c307c2c9fab29dbad95a172a72ba095fc4
                    page.drawString("THE END", 350, 350);
                }
 
@@ -317,17 +335,26 @@ public class MainStory extends Applet implements MouseListener
 
                myChoices.setKey(chosenChoice);
                //System.out.println();
+               
            }
            else{
                myChoices.setKey(myChoices.getKeyValues()[0]);
                chosenChoice = myChoices.getKeyValues()[0];
            }
 
+<<<<<<< HEAD
            //text that explains your choice "you did this"
            page.setColor(customColor);
            page.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
            if (myChoices.getKey() == 5)  page.drawString("He arrests you for going to an illegal place.", 100, 140);
            //System.out.println();
+=======
+           if(myChoices.getKeyValues()[0] != 1){
+               //text that explains your choice "you did this"
+               page.setFont(new Font("Serif", Font.PLAIN, 20));
+               page.drawString(explaintext[chosenChoice], 90, 180);
+            }
+>>>>>>> 9c4e75c307c2c9fab29dbad95a172a72ba095fc4
            //will the images in an array work?
            
            try{
