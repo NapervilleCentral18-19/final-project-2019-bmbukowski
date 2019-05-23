@@ -281,6 +281,10 @@ public class MainStory extends Applet implements MouseListener
                    page.setColor(customColor);
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
                    page.drawString("THE END", 350, 350);
+                    
+                   //work on this later
+                   //myChoices.setKey(2);
+                   //start = false;
                }
 
                if (choice1lightup == true){
@@ -336,20 +340,20 @@ public class MainStory extends Applet implements MouseListener
 
            //text that explains your choice "you did this"
            page.setColor(customColor);
-           page.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
+           page.setFont(new Font("Bookman Old Style", Font.PLAIN, 17));
            if (myChoices.getKey() == 5)  page.drawString("He arrests you for going to an illegal place.", 100, 140);
            //System.out.println();
 
            if(myChoices.getKeyValues()[0] != 1){
                //text that explains your choice "you did this"
-               page.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
+               page.setFont(new Font("Bookman Old Style", Font.PLAIN, 17));
                page.drawString(explaintext[chosenChoice], 100, 120);
             }
            //will the images in an array work?
            
            try{
                //pause the program for quarter second(is in milliseconds)
-               Thread.sleep(250);
+               Thread.sleep(350);
               }
               catch(InterruptedException e){}//<-- do nothing if exception occurs
               
@@ -360,12 +364,12 @@ public class MainStory extends Applet implements MouseListener
         setBackground (Color.black);
         startBackground.draw(page); 
         startRec.draw(page);
-        page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
-        page.drawString("Press to start", 350, 350);
+        
         page.setColor(Color.black);
-        page.setColor(Color.white);
         page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
         page.drawString("Press to start", 350, 350);
+        
+        //page.setColor(Color.white);
     }
     
     repaint();
