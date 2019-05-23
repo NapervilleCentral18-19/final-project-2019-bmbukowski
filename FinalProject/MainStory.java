@@ -23,7 +23,7 @@ public class MainStory extends Applet implements MouseListener
    private Color color;
    private int x = 0; // counter for paint method
    private Random generator = new Random();
-   private Rectangle choice1, choice2, choice1background, choice2background, startRec;
+   private Rectangle choice1, choice2, choice1background, choice2background, startRec, startBackground;
    private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15,background;
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
@@ -31,7 +31,7 @@ public class MainStory extends Applet implements MouseListener
    private boolean choice1lightup = false;
    private boolean choice2lightup = false;
    private int count = 0;
-  // private boolean start = false;
+   private boolean start;
    
    //Text story stuff
         //all the choice keys
@@ -76,7 +76,7 @@ public class MainStory extends Applet implements MouseListener
             "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
             "You called an Uber.", "You start to walk to the waterpark.",
             "You told your Uber driver to take you straight to the waterpark."+
-            "\nBut it turns out that your Uber driver is an undercover cop! \nHe arrests you for going to an illegal place.",
+            "\nBut it turns out that your Uber driver is an undercover cop!",
             
             "You told your Uber driver to drop you off at McDonald's.",
             "You walked to the McDonald's next door.",
@@ -108,8 +108,10 @@ public class MainStory extends Applet implements MouseListener
        choice2 = new Rectangle (550, 500, Color.white, 350, 100);
        choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
        choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
-       startRec = new Rectangle (250, 250, Color.gray, 370, 120);
+       startRec = new Rectangle (290, 280, Color.white, 370, 120);
+       startBackground = new Rectangle (280, 270, Color.blue, 390, 140);
        addMouseListener(this);
+       start = false;
       
        //Images for story
        photo0 = getImage(getDocumentBase(), "Images\\death.jpg");
@@ -154,7 +156,7 @@ public class MainStory extends Applet implements MouseListener
  //THIS WORKS :,,,,)
  public void mouseClicked(MouseEvent e) {
     // if the user clicks the left box, that is the choice they made and is now the first choice is true
-    //if (start){
+    if (start){
         if(e.getY() > 500 && e.getY() < 601){
             if(e.getX() > 99 && e.getX() < 451){
                 choice1bool = true;
@@ -164,14 +166,14 @@ public class MainStory extends Applet implements MouseListener
                 choice2bool = true;
             }
         }
-    //}
-    /*else{
-        if(e.getY() > 249 && e.getY() < 621){
-            if(e.getX() > 249 && e.getX() < 371){
+    }
+    else{
+        if(e.getY() > 279 && e.getY() < 661){
+            if(e.getX() > 289 && e.getX() < 401){
                 start = true;
             }
         }
-    } */
+    } 
  }
 
 
@@ -186,7 +188,7 @@ public class MainStory extends Applet implements MouseListener
  }
 
  public void mouseReleased(MouseEvent e) {
-    //if (start == true){
+    if (start){
         if(e.getY() > 500 && e.getY() < 601){
             if(e.getX() > 99 && e.getX() < 451){
                    choice1lightup = true;
@@ -196,7 +198,7 @@ public class MainStory extends Applet implements MouseListener
                    choice2lightup = true;
             }
         }
-   // }
+    }
  }
  
  
@@ -205,7 +207,7 @@ public class MainStory extends Applet implements MouseListener
    //-----------------------------------------------------------------
    
  public void paint (Graphics page){
-    //if (start == true){
+    if (start == true){
        Color customColor = new Color(255,163,106);
        Color buttonColor = new Color(85,138,204);
        Color buttonClick = new Color(230,198,142); 
@@ -224,7 +226,7 @@ public class MainStory extends Applet implements MouseListener
            {
                if (myChoices.getKeyValues()[0] == 1){
                   page.setColor(customColor);
-                  page.setFont(new Font("Serif", Font.PLAIN, 20));
+                  page.setFont(new Font("Bookman Old Style", Font.PLAIN, 16));
                   page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
                   page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
                }
@@ -248,25 +250,26 @@ public class MainStory extends Applet implements MouseListener
                    choice2.draw(page);
                    count++;
 
-                   page.setColor(Color.blue);
-                   page.setFont(new Font("Serif", Font.PLAIN, 20));
-                   page.drawString("Will you:", 100, 200);
+                   page.setColor(customColor);
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+                   page.drawString("Will you", 450, 190);
+                   page.drawLine(450 , 192 , 450+getFontMetrics(new Font("Bookman Old Style", Font.PLAIN, 20)).stringWidth("Will you"), 192);
                    page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
-                   page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 100, 240);
-<<<<<<< HEAD
+                   page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 540, 220);
+
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
-                   page.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-=======
+                   page.setFont(new Font("TimesRoman", Font.PLAIN, 40));
+
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
-                   page.setFont(new Font("Serif", Font.PLAIN, 50));
->>>>>>> 88ddc57690386b278789c3e13d18c5ef53f41c0a
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
                }
                else{
-                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
                    page.drawString("THE END", 350, 350);
                }
 
@@ -277,7 +280,7 @@ public class MainStory extends Applet implements MouseListener
                    choice1.draw(page);
 
                    page.setColor(buttonClick);
-                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
 
                    page.setColor(Color.blue);
@@ -292,7 +295,7 @@ public class MainStory extends Applet implements MouseListener
                    choice2.draw(page);
 
                    page.setColor(buttonClick);
-                   page.setFont(new Font("Serif", Font.PLAIN, 50));
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
 
                    page.setColor(buttonColor);
@@ -321,8 +324,9 @@ public class MainStory extends Applet implements MouseListener
            }
 
            //text that explains your choice "you did this"
-           page.setFont(new Font("Serif", Font.PLAIN, 20));
-           page.drawString(explaintext[chosenChoice], 100, 180);
+           page.setColor(customColor);
+           page.setFont(new Font("Bookman Old Style", Font.PLAIN, 14));
+           if (myChoices.getKey() == 5)  page.drawString("He arrests you for going to an illegal place.", 100, 140);
            //System.out.println();
            //will the images in an array work?
            
@@ -336,12 +340,13 @@ public class MainStory extends Applet implements MouseListener
 
            repaint();
        }
-   // }
-    //else{
-        //startRec.draw(page);
-        
-        //page.setFont(new Font("Serif", Font.PLAIN, 50));
-        //page.drawString("Press to start", 350, 350);
-   // }
+    }
+    else{
+        startBackground.draw(page); 
+        startRec.draw(page);
+        page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+        page.setColor(Color.black);
+        page.drawString("Press to start", 350, 350);
+    }
  }
 }
