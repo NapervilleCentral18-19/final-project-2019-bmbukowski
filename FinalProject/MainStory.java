@@ -23,7 +23,7 @@ public class MainStory extends Applet implements MouseListener
    private Color color;
    private int x = 0; // counter for paint method
    private Random generator = new Random();
-   private Rectangle choice1, choice2, choice1background, choice2background, startRec, startBackground;
+   private Rectangle choice1, choice2, choice1background, choice2background, startRec, startBackground, imageBorder1, imageBorder2;
    private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15,background;
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
@@ -112,6 +112,10 @@ public class MainStory extends Applet implements MouseListener
        choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
        startRec = new Rectangle (290, 280, Color.white, 370, 120);
        startBackground = new Rectangle (280, 270, buttonColor, 390, 140);
+       
+       imageBorder1 = new Rectangle(160, 270, customColor, 210, 210);
+       imageBorder2 = new Rectangle(620, 270, customColor, 210, 210);
+       
        addMouseListener(this);
        start = false;
        restart = false;
@@ -263,8 +267,12 @@ public class MainStory extends Applet implements MouseListener
                    page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
                    page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 540, 220);
 
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
+                   imageBorder1.draw(page);
+                   imageBorder2.draw(page);
+                   
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 165, 275, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 625, 275, this);
+
                    page.setFont(new Font("Bookman Old Style", Font.BOLD, 30));
 
                    /*page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
