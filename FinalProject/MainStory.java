@@ -31,7 +31,7 @@ public class MainStory extends Applet implements MouseListener
    private boolean choice1lightup = false;
    private boolean choice2lightup = false;
    private int count = 0;
-   private boolean start;
+   private boolean start, restart;
    
    //Text story stuff
         //all the choice keys
@@ -112,6 +112,7 @@ public class MainStory extends Applet implements MouseListener
        startBackground = new Rectangle (280, 270, Color.blue, 390, 140);
        addMouseListener(this);
        start = false;
+       restart = false;
       
        //Images for story
        photo0 = getImage(getDocumentBase(), "Images\\death.jpg");
@@ -174,6 +175,9 @@ public class MainStory extends Applet implements MouseListener
             }
         }
     } 
+    if (myChoices.getKeyValues()[0] == 0 || myChoices.getKeyValues()[0] == 15){
+        restart = true;
+    }
  }
 
 
@@ -226,6 +230,7 @@ public class MainStory extends Applet implements MouseListener
            if(myChoices.getKeyValues().length > 1)
            {
                if (myChoices.getKeyValues()[0] == 1){
+                  restart = false;
                   page.setColor(customColor);
                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 16));
                   page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
@@ -283,8 +288,10 @@ public class MainStory extends Applet implements MouseListener
                    page.drawString("THE END", 350, 350);
                     
                    //work on this later
-                   //myChoices.setKey(2);
-                   //start = false;
+                   if (restart){
+                       myChoices.setKey(2);
+                       start = false;
+                   }
                }
 
                if (choice1lightup == true){
@@ -354,8 +361,8 @@ public class MainStory extends Applet implements MouseListener
            try{
                //pause the program for quarter second(is in milliseconds)
                Thread.sleep(350);
-              }
-              catch(InterruptedException e){}//<-- do nothing if exception occurs
+           }
+           catch(InterruptedException e){}//<-- do nothing if exception occurs
               
            //if the CPU is busy and can't sleep
        }
