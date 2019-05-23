@@ -253,9 +253,9 @@ public class MainStory extends Applet implements MouseListener
 
 
                    page.setColor(customColor);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 16));
                    page.drawString("Will you", 450, 190);
-                   page.drawLine(450 , 192 , 450+getFontMetrics(new Font("Bookman Old Style", Font.PLAIN, 20)).stringWidth("Will you"), 192);
+                   page.drawLine(450 , 192 , 450+getFontMetrics(new Font("Bookman Old Style", Font.PLAIN, 16)).stringWidth("Will you"), 192);
                    page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
                    page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 540, 220);
 
