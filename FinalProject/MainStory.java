@@ -16,7 +16,7 @@ import java.awt.Color;
 
 public class MainStory extends Applet implements MouseListener
 {
-   private final int APPLET_WIDTH = 1000;
+   private final int APPLET_WIDTH = 1100;
    private final int APPLET_HEIGHT = 1000;
    private final int HEIGHT_MIN = 500;
    private final int VARIANCE = 40;
@@ -74,7 +74,7 @@ public class MainStory extends Applet implements MouseListener
             "Climb the fence and go inside the waterpark", "Go upstairs",
             "Go downstairs", "WIN"};
             
-        String[] explaintext = {"You made the wrong choice!",
+        String[] exBOLDtext = {"You made the wrong choice!",
             "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
             "You called an Uber.", "You start to walk to the waterpark.",
             "You told your Uber driver to take you straight to the waterpark."+
@@ -269,11 +269,11 @@ public class MainStory extends Applet implements MouseListener
 
                    /*page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
                    
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 50));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 50));
                    */
 
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
@@ -344,16 +344,22 @@ public class MainStory extends Applet implements MouseListener
                chosenChoice = myChoices.getKeyValues()[0];
            }
 
-           //text that explains your choice "you did this"
+           //text that exBOLDs your choice "you did this"
            page.setColor(customColor);
            page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
            if (myChoices.getKey() == 5)  page.drawString("your Uber driver is an undercover cop! He arrests you for going to an illegal place.", 100, 140);
            //System.out.println();
 
            if(myChoices.getKeyValues()[0] != 1){
+<<<<<<< HEAD
                //text that explains your choice "you did this"
                page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
                page.drawString(explaintext[chosenChoice], 100, 120);
+=======
+               //text that exBOLDs your choice "you did this"
+               page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
+               page.drawString(exBOLDtext[chosenChoice], 100, 120);
+>>>>>>> 6a57a6da8a811c220c9cbc2b916445cb853fbd49
             }
            //will the images in an array work?
            
