@@ -108,8 +108,8 @@ public class MainStory extends Applet implements MouseListener
        // creates two new boxes for choice rectangles and adds a mouselistener so the user can click which box they want to choose
        choice1 = new Rectangle (100, 500, Color.white, 350, 100); 
        choice2 = new Rectangle (550, 500, Color.white, 350, 100);
-       choice1background = new Rectangle (90, 490, buttonColor, 370, 120); 
-       choice2background = new Rectangle (540, 490, buttonColor, 370, 120);
+       choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
+       choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
        startRec = new Rectangle (290, 280, Color.white, 370, 120);
        startBackground = new Rectangle (280, 270, Color.blue, 390, 140);
        addMouseListener(this);
@@ -305,7 +305,7 @@ public class MainStory extends Applet implements MouseListener
 
                    page.setColor(Color.blue);
                    //reseting the rectangle to be blue
-                   choice1background = new Rectangle (90, 490, buttonColor, 370, 120); 
+                   choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
                    choice1lightup = false; // true is changed to false for the next prompt to go
                }
                else if (choice2lightup == true){
@@ -318,9 +318,9 @@ public class MainStory extends Applet implements MouseListener
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
 
-                   page.setColor(buttonColor);
+                   page.setColor(Color.blue);
                    //reseting the rectangle to be blue
-                   choice2background = new Rectangle (540, 490, buttonColor, 370, 120);
+                   choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
                    choice2lightup = false; // true is changed to false for the next prompt to go
                }
 
