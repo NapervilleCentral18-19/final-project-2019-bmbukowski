@@ -32,6 +32,8 @@ public class MainStory extends Applet implements MouseListener
    private boolean choice2lightup = false;
    private int count = 0;
    private boolean start, restart;
+   private Color customColor = new Color(255,163,106);
+   private Color buttonColor = new Color(85,138,204);
    
    //Text story stuff
         //all the choice keys
@@ -76,7 +78,7 @@ public class MainStory extends Applet implements MouseListener
             "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
             "You called an Uber.", "You start to walk to the waterpark.",
             "You told your Uber driver to take you straight to the waterpark."+
-            "\nBut it turns out that your Uber driver is an undercover cop!",
+            "\nBut it turns out that",
             
             "You told your Uber driver to drop you off at McDonald's.",
             "You walked to the McDonald's next door.",
@@ -106,8 +108,8 @@ public class MainStory extends Applet implements MouseListener
        // creates two new boxes for choice rectangles and adds a mouselistener so the user can click which box they want to choose
        choice1 = new Rectangle (100, 500, Color.white, 350, 100); 
        choice2 = new Rectangle (550, 500, Color.white, 350, 100);
-       choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
-       choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
+       choice1background = new Rectangle (90, 490, buttonColor, 370, 120); 
+       choice2background = new Rectangle (540, 490, buttonColor, 370, 120);
        startRec = new Rectangle (290, 280, Color.white, 370, 120);
        startBackground = new Rectangle (280, 270, Color.blue, 390, 140);
        addMouseListener(this);
@@ -175,9 +177,9 @@ public class MainStory extends Applet implements MouseListener
             }
         }
     } 
-    if (myChoices.getKeyValues()[0] == 0 || myChoices.getKeyValues()[0] == 15){
+    /*if (myChoices.getKeyValues()[0] == 0 || myChoices.getKeyValues()[0] == 15){
         restart = true;
-    }
+    }*/
  }
 
 
@@ -213,8 +215,6 @@ public class MainStory extends Applet implements MouseListener
  public void paint (Graphics page){
     if (start == true){
        setBackground (Color.white);
-       Color customColor = new Color(255,163,106);
-       Color buttonColor = new Color(85,138,204);
        Color buttonClick = new Color(230,198,142); 
 
        background = getImage(getDocumentBase(), "Images\\background.jpg");
@@ -230,7 +230,6 @@ public class MainStory extends Applet implements MouseListener
            if(myChoices.getKeyValues().length > 1)
            {
                if (myChoices.getKeyValues()[0] == 1){
-                  restart = false;
                   page.setColor(customColor);
                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 16));
                   page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
@@ -245,9 +244,9 @@ public class MainStory extends Applet implements MouseListener
 
                if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
                    page.setColor(buttonColor);
-                   //choice1background.setColor(page, Color.blue);
+                   //choice1background.setColor(page, customColor);
                    choice1background.draw(page);
-                   //choice2background.setColor(page, Color.blue);
+                   //choice2background.setColor(page, customColor);
                    choice2background.draw(page);
 
                    choice1.setColor(page, Color.white);
@@ -288,10 +287,10 @@ public class MainStory extends Applet implements MouseListener
                    page.drawString("THE END", 350, 350);
                     
                    //work on this later
-                   if (restart){
+                   /*if (restart){
                        myChoices.setKey(2);
                        start = false;
-                   }
+                   }*/
                }
 
                if (choice1lightup == true){
@@ -306,7 +305,7 @@ public class MainStory extends Applet implements MouseListener
 
                    page.setColor(Color.blue);
                    //reseting the rectangle to be blue
-                   choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
+                   choice1background = new Rectangle (90, 490, buttonColor, 370, 120); 
                    choice1lightup = false; // true is changed to false for the next prompt to go
                }
                else if (choice2lightup == true){
@@ -321,7 +320,7 @@ public class MainStory extends Applet implements MouseListener
 
                    page.setColor(buttonColor);
                    //reseting the rectangle to be blue
-                   choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
+                   choice2background = new Rectangle (540, 490, buttonColor, 370, 120);
                    choice2lightup = false; // true is changed to false for the next prompt to go
                }
 
@@ -348,7 +347,7 @@ public class MainStory extends Applet implements MouseListener
            //text that explains your choice "you did this"
            page.setColor(customColor);
            page.setFont(new Font("Bookman Old Style", Font.PLAIN, 17));
-           if (myChoices.getKey() == 5)  page.drawString("He arrests you for going to an illegal place.", 100, 140);
+           if (myChoices.getKey() == 5)  page.drawString("your Uber driver is an undercover cop! He arrests you for going to an illegal place.", 100, 140);
            //System.out.println();
 
            if(myChoices.getKeyValues()[0] != 1){
@@ -366,6 +365,10 @@ public class MainStory extends Applet implements MouseListener
               
            //if the CPU is busy and can't sleep
        }
+       /*if (restart){
+           myChoices.setKey(2);
+           start = false;
+       }*/
     }
     else{
         setBackground (Color.black);
@@ -375,7 +378,7 @@ public class MainStory extends Applet implements MouseListener
         page.setColor(Color.black);
         page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
         page.drawString("Press to start", 350, 350);
-        
+        //restart = false;
         //page.setColor(Color.white);
     }
     
