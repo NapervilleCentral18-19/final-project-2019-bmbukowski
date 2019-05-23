@@ -74,7 +74,7 @@ public class MainStory extends Applet implements MouseListener
             "Climb the fence and go inside the waterpark", "Go upstairs",
             "Go downstairs", "WIN"};
             
-        String[] exBOLDtext = {"You made the wrong choice!",
+        String[] explaintext = {"You made the wrong choice!",
             "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
             "You called an Uber.", "You start to walk to the waterpark.",
             "You told your Uber driver to take you straight to the waterpark."+
@@ -111,7 +111,7 @@ public class MainStory extends Applet implements MouseListener
        choice1background = new Rectangle (90, 490, Color.blue, 370, 120); 
        choice2background = new Rectangle (540, 490, Color.blue, 370, 120);
        startRec = new Rectangle (290, 280, Color.white, 370, 120);
-       startBackground = new Rectangle (280, 270, Color.blue, 390, 140);
+       startBackground = new Rectangle (280, 270, buttonColor, 390, 140);
        addMouseListener(this);
        start = false;
        restart = false;
@@ -283,7 +283,7 @@ public class MainStory extends Applet implements MouseListener
                    page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
 
                    page.setColor(customColor);
-                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
                    page.drawString("THE END", 350, 350);
                     
                    //work on this later
@@ -351,15 +351,9 @@ public class MainStory extends Applet implements MouseListener
            //System.out.println();
 
            if(myChoices.getKeyValues()[0] != 1){
-<<<<<<< HEAD
                //text that explains your choice "you did this"
                page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
                page.drawString(explaintext[chosenChoice], 100, 120);
-=======
-               //text that exBOLDs your choice "you did this"
-               page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
-               page.drawString(exBOLDtext[chosenChoice], 100, 120);
->>>>>>> 6a57a6da8a811c220c9cbc2b916445cb853fbd49
             }
            //will the images in an array work?
            
@@ -381,11 +375,22 @@ public class MainStory extends Applet implements MouseListener
         startBackground.draw(page); 
         startRec.draw(page);
         
+        page.setColor(buttonColor);
+        page.setFont(new Font("Bookman Old Style", Font.BOLD, 50));
+        page.drawString("CHOOSE YOUR OWN ADVENTURE", 50, 150);
+        
         page.setColor(Color.black);
         page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
-        page.drawString("Press to start", 350, 350);
+        page.drawString("Press to start", 340, 350);
+        
         //restart = false;
         //page.setColor(Color.white);
+        
+        try{
+               //pause the program for quarter second(is in milliseconds)
+               Thread.sleep(350);
+           }
+           catch(InterruptedException e){}//<-- do nothing if exception occurs
     }
     
     repaint();
