@@ -231,7 +231,7 @@ public class MainStory extends Applet implements MouseListener
            {
                if (myChoices.getKeyValues()[0] == 1){
                   page.setColor(customColor);
-                  page.setFont(new Font("Bookman Old Style", Font.PLAIN, 16));
+                  page.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
                   page.drawString("You wake up one morning and want to go have an adventure.", 100, 100);
                   page.drawString("You know of a spooky abandoned waterpark near by, and have been wanting to visit it for a while.", 100, 120);
                }
@@ -257,15 +257,15 @@ public class MainStory extends Applet implements MouseListener
 
 
                    page.setColor(customColor);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 16));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
                    page.drawString("Will you", 450, 190);
-                   page.drawLine(450 , 192 , 450+getFontMetrics(new Font("Bookman Old Style", Font.PLAIN, 16)).stringWidth("Will you"), 192);
+                   page.drawLine(450 , 192 , 450+getFontMetrics(new Font("Bookman Old Style", Font.BOLD, 16)).stringWidth("Will you"), 192);
                    page.drawString(myChoices.getKeyValues()[0]+". "+choicetext[myChoices.getKeyValues()[0]], 100, 220);
                    page.drawString(myChoices.getKeyValues()[1]+". "+choicetext[myChoices.getKeyValues()[1]], 540, 220);
 
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 30));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 30));
 
                    /*page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
@@ -280,10 +280,10 @@ public class MainStory extends Applet implements MouseListener
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
                }
                else{
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
 
                    page.setColor(customColor);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 20));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 20));
                    page.drawString("THE END", 350, 350);
                     
                    //work on this later
@@ -300,7 +300,7 @@ public class MainStory extends Applet implements MouseListener
                    choice1.draw(page);
 
                    page.setColor(buttonClick);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
 
                    page.setColor(Color.blue);
@@ -315,7 +315,7 @@ public class MainStory extends Applet implements MouseListener
                    choice2.draw(page);
 
                    page.setColor(buttonClick);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+                   page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
 
                    page.setColor(Color.blue);
@@ -346,13 +346,13 @@ public class MainStory extends Applet implements MouseListener
 
            //text that explains your choice "you did this"
            page.setColor(customColor);
-           page.setFont(new Font("Bookman Old Style", Font.PLAIN, 17));
+           page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
            if (myChoices.getKey() == 5)  page.drawString("your Uber driver is an undercover cop! He arrests you for going to an illegal place.", 100, 140);
            //System.out.println();
 
            if(myChoices.getKeyValues()[0] != 1){
                //text that explains your choice "you did this"
-               page.setFont(new Font("Bookman Old Style", Font.PLAIN, 17));
+               page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
                page.drawString(explaintext[chosenChoice], 100, 120);
             }
            //will the images in an array work?
@@ -376,7 +376,7 @@ public class MainStory extends Applet implements MouseListener
         startRec.draw(page);
         
         page.setColor(Color.black);
-        page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+        page.setFont(new Font("Bookman Old Style", Font.BOLD, 40));
         page.drawString("Press to start", 350, 350);
         //restart = false;
         //page.setColor(Color.white);
