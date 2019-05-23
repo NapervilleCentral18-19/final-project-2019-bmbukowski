@@ -243,7 +243,7 @@ public class MainStory extends Applet implements MouseListener
                //page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 400, 400, this);
 
                if (myChoices.getKeyValues()[0] != 0 && myChoices.getKeyValues()[0] != 15){
-                   page.setColor(buttonColor);
+                   page.setColor(customColor);
                    //choice1background.setColor(page, customColor);
                    choice1background.draw(page);
                    //choice2background.setColor(page, customColor);
