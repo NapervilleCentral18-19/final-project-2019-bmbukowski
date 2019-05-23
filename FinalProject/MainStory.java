@@ -261,16 +261,16 @@ public class MainStory extends Applet implements MouseListener
 
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
-                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+                   page.setFont(new Font("Bookman Old Style", Font.PLAIN, 30));
 
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 100, 300, this);
-                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 600, 300, this);
+                   /*page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
+                   page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
                    
                    page.drawImage(choiceImages[myChoices.getKeyValues()[0]], 160, 280, this);
                    page.drawImage(choiceImages[myChoices.getKeyValues()[1]], 620, 280, this);
                    page.setFont(new Font("Bookman Old Style", Font.PLAIN, 50));
-                   
+                   */
 
                    page.drawString(""+myChoices.getKeyValues()[0], 255, 570);
                    page.drawString(""+myChoices.getKeyValues()[1], 715, 570);
@@ -361,9 +361,11 @@ public class MainStory extends Applet implements MouseListener
         startBackground.draw(page); 
         startRec.draw(page);
         page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
-        page.setColor(Color.black);
         page.drawString("Press to start", 350, 350);
+        page.setColor(Color.black);
         page.setColor(Color.white);
+        page.setFont(new Font("Bookman Old Style", Font.PLAIN, 40));
+        page.drawString("Press to start", 350, 350);
     }
     
     repaint();
