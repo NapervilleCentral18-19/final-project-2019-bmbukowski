@@ -24,7 +24,9 @@ public class MainStory extends Applet implements MouseListener
    private int x = 0; // counter for paint method
    private Random generator = new Random();
    private Rectangle choice1, choice2, choice1background, choice2background, startRec, startBackground, imageBorder1, imageBorder2;
-   private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15,background;
+   private Image photo0,photo1,photo2,photo3,photo4,photo5,photo6,photo7,photo8,photo9,photo10,photo11,photo12,photo13,photo14,photo15,background,photo16, photo17;
+   private Image photo18, photo19;
+   
    // private ArrayList<Image> photoList;
    private boolean choice1bool = false;
    private boolean choice2bool = false;
@@ -37,7 +39,7 @@ public class MainStory extends Applet implements MouseListener
    
    //Text story stuff
         //all the choice keys
-        int[] keys = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        int[] keys = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
         //0=DIE
         //100=WIN
         //1=waterpark, 2=sleep, 3=uber, 4=walk, 5=straight uber, 
@@ -46,6 +48,8 @@ public class MainStory extends Applet implements MouseListener
         //12=venture inside the park, 13=go upstairs unstable die,
         //14=go downstairs find money
         //15=WIN
+        //16=accept arrest, 17=run for it
+        //18=run left keep going, 19=run right end
         
         //all the possible choices associated with the keys
         int[][] vals = { {0, 0},    //0 LOSE(so that there are no out of bounds errors) LOSE
@@ -53,7 +57,7 @@ public class MainStory extends Applet implements MouseListener
                          {1, 2}, //2
                          {5, 6}, //3
                          {7, 8}, //4
-                         {0, 0},    //5
+                         {16, 17},    //5
                          {9, 10},//6
                          {9, 10},//7
                          {0, 0},    //8
@@ -62,8 +66,12 @@ public class MainStory extends Applet implements MouseListener
                          {15, 15},   //11
                          {13, 14},//12
                          {0, 0},    //13
-                         {15, 15},   //14
-                         {15, 15} }; //15 WIN
+                         {15, 15},   //14                         
+                         {15, 15}, //15 WIN
+                         {0, 0}, //16
+                         {18, 19}, //17
+                         {11, 12}, //18
+                         {0, 0}}; //19
                          
         //text associated with choices
         String[] choicetext = {"DIE", "Go to the abandoned waterpark", "Stay home",
@@ -72,7 +80,7 @@ public class MainStory extends Applet implements MouseListener
             "Walk straight to the waterpark", "Now walk to the waterpark",
             "Have a milkshake", "Stay outside the waterpark and take pictures",
             "Climb the fence and go inside the waterpark", "Go upstairs",
-            "Go downstairs", "WIN"};
+            "Go downstairs", "WIN", "Accept your arrest", "Run from the police", "Run left", "Run right"};
             
         String[] explaintext = {"You made the wrong choice!",
             "You decided to go to the abandoned waterpark", "You stayed home like a wuss.",
@@ -87,9 +95,10 @@ public class MainStory extends Applet implements MouseListener
             "You drank a milkshake.\nBut the McDonald's worker accidentally poisoned your milkshake and you die!",
             "You stayed outside the waterpark, a safe choice, but not very adventurous.",
             "You climbed the fence around the waterpark and enter an abandoned ticket booth.",
-            "You went upstairs, but the floor is unstable!\nYou fall through the floor and break your leg.",
+            "You went upstairs, but the floor is unstable! You fall through the floor and break your leg.",
             "You went downstairs, and found a buried chest! It contained $500!",
-            "You made the right choices!"};
+            "You made the right choices!", "You got arrested.", "You ran away from the cop!",
+            "You ran left and went to the waterpark!", "You ran right, but tripped and fell! The cop arrested you."};
             
         //choice the player has currently chosen 
         //starts off as 2 (stay home) so that it starts with correct choices (1 and 2)
@@ -103,7 +112,7 @@ public class MainStory extends Applet implements MouseListener
    //-----------------------------------------------------------------
    //  Creates choice boxes and stores the photos
    //-----------------------------------------------------------------
-   Image choiceImages[] = new Image[16];  
+   Image choiceImages[] = new Image[20];  
  public void init (){
        // creates two new boxes for choice rectangles and adds a mouselistener so the user can click which box they want to choose
        choice1 = new Rectangle (100, 500, Color.white, 350, 100); 
@@ -126,7 +135,7 @@ public class MainStory extends Applet implements MouseListener
        photo2 = getImage(getDocumentBase(), "Images\\stayhome.jpg");
        photo3 = getImage(getDocumentBase(), "Images\\uber.jpg");
        photo4 = getImage(getDocumentBase(), "Images\\walk.jpg");
-       photo5 = getImage(getDocumentBase(), "Images\\uberispolice.jpg");
+       photo5 = getImage(getDocumentBase(), "Images\\uberstraight.jpg");
        photo6 = getImage(getDocumentBase(), "Images\\mcdonalds.jpg");
        photo7 = getImage(getDocumentBase(), "Images\\mcdonalds.jpg");
        photo8 = getImage(getDocumentBase(), "Images\\continuewalking.jpg");
@@ -137,6 +146,10 @@ public class MainStory extends Applet implements MouseListener
        photo13 = getImage(getDocumentBase(), "Images\\upstairs.jpg");
        photo14 = getImage(getDocumentBase(), "Images\\downstairs.jpg");
        photo15 = getImage(getDocumentBase(), "Images\\treasure.jpg");
+       photo16 = getImage(getDocumentBase(), "Images\\uberispolice.jpg");
+       photo17 = getImage(getDocumentBase(), "Images\\runfrompolice.jpg");
+       photo18 = getImage(getDocumentBase(), "Images\\runleft.jpg");
+       photo19 = getImage(getDocumentBase(), "Images\\runright.jpg");
         
        choiceImages[0] = photo0;
        choiceImages[1] = photo1;
@@ -154,6 +167,10 @@ public class MainStory extends Applet implements MouseListener
        choiceImages[13] = photo13;
        choiceImages[14] = photo14;
        choiceImages[15] = photo15;
+       choiceImages[16] = photo16;
+       choiceImages[17] = photo17;
+       choiceImages[18] = photo18;
+       choiceImages[19] = photo19;
         
        // sets background color and applet size
        setBackground (Color.white);
@@ -355,7 +372,7 @@ public class MainStory extends Applet implements MouseListener
            //text that exBOLDs your choice "you did this"
            page.setColor(customColor);
            page.setFont(new Font("Bookman Old Style", Font.BOLD, 17));
-           if (myChoices.getKey() == 5)  page.drawString("your Uber driver is an undercover cop! He arrests you for going to an illegal place.", 100, 140);
+           if (myChoices.getKey() == 5)  page.drawString("your Uber driver is an undercover cop! He is going to arrest you for going to an illegal place.", 100, 140);
            //System.out.println();
 
            if(myChoices.getKeyValues()[0] != 1){
